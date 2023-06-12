@@ -1,0 +1,1 @@
+export { FacebookSVG } from "./FacebookSVG";
