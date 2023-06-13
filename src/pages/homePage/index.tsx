@@ -1,9 +1,13 @@
-import HomeBanner from "../../components/sections/homeBanner";
+import { useLoaderData } from "react-router-dom";
+
+import Header from "../../components/sections/shared/header";
 
 const HomePage = () => {
+  const { header } = useLoaderData() as any;
+
   return (
     <>
-      <HomeBanner />
+      <Header header={header.fields} />
     </>
   );
 };
