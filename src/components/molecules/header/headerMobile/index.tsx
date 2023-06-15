@@ -1,5 +1,7 @@
-import { HeaderDataProps } from "../../../../contracts/sections/shared/header/utilityTypes";
+import { useState } from "react";
 
+import { cx } from "../../../../lib/utils";
+import { HeaderDataProps } from "../../../../contracts/sections/shared/header/utilityTypes";
 import { Icons } from "../../../../shared";
 import LoginButton from "../../../atoms/LoginButton";
 import SearchBar from "../../../atoms/SearchBar";
@@ -11,6 +13,9 @@ const {
   wrapperSearchBar,
   wrapperSearchBarIcon,
   wrapperLoginBtns,
+  wrapperMobileMenu,
+  wrapperMobileMenuClose,
+  wrapperMobileMenuActive,
 } = styles;
 
 const HeaderMobile = ({
@@ -23,9 +28,15 @@ const HeaderMobile = ({
   signInLabel,
   subjects,
 }: HeaderDataProps) => {
+  const [isActive, setIsActive] = useState(false);
+
+  const handleActiveMenu = () => {
+    setIsActive((prev) => !prev);
+  };
+
   return (
     <div className={wrapper}>
-      <div className={wrapperIcon}>
+      <div className={wrapperIcon} onClick={handleActiveMenu}>
         <Icons.MenuSVG />
       </div>
       <div className={wrapperSearchBar}>
@@ -37,6 +48,14 @@ const HeaderMobile = ({
       <div className={wrapperLoginBtns}>
         <LoginButton label={logInLabel} />
         <LoginButton label={signInLabel} />
+      </div>
+
+      <div
+        className={cx(wrapperMobileMenu, isActive && wrapperMobileMenuActive)}
+      >
+        <div className={wrapperMobileMenuClose} onClick={handleActiveMenu}>
+          <Icons.CloseSVG />
+        </div>
       </div>
     </div>
   );

@@ -74,4 +74,53 @@
       background-color: $gray-3;
     }
   }
+
+  &MobileMenu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    height: 100%;
+    width: 100%;
+
+    background-color: #fff;
+
+    visibility: hidden;
+    opacity: 0;
+    overflow: auto;
+    transition: visibility 0.3s, opacity 0.3s;
+
+    &Active {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    &Close {
+      position: absolute;
+      right: 15px;
+      top: 15px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid $gray;
+
+      > svg {
+        font-size: 28px;
+
+        path {
+          stroke: $steelBlue;
+        }
+      }
+    }
+  }
 }
