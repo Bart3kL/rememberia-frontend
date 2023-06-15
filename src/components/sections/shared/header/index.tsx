@@ -1,4 +1,4 @@
-import { HeaderProps } from "./types";
+import { HeaderProps } from "../../../../contracts/sections/shared/header/types";
 import HeaderMobile from "../../../molecules/header/headerMobile";
 import HeaderDesktop from "../../../molecules/header/headerDesktop";
 

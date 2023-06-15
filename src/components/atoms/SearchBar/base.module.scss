@@ -1,0 +1,48 @@
+@import "../../../styles/variables";
+
+.wrapper {
+  display: none;
+
+  width: 100%;
+  height: 38px;
+  border-radius: 25px;
+
+  background-color: $gray-3;
+
+  &Label {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    border-radius: 25px;
+    border: 1.3px solid transparent;
+
+    cursor: pointer;
+    transition: border 0.3s;
+
+    &Icon {
+      display: flex;
+      justify-content: center;
+
+      width: 40px;
+    }
+
+    input {
+      height: 38px;
+      width: 100%;
+      border: 0;
+
+      background-color: transparent;
+      color: $gray-2;
+
+      font-weight: 600;
+
+      cursor: pointer;
+      outline: none;
+    }
+  }
+
+  &Label:hover {
+    border-color: $gray-2;
+  }
+}

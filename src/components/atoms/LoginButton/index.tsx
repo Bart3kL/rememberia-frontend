@@ -1,7 +1,9 @@
+import { LoginButtonProps } from "../../../contracts/atoms/LoginButton";
+
 import styles from "./rwd.module.scss";
 const { wrapper } = styles;
 
-const LoginButton = ({ label }: any) => {
+const LoginButton = ({ label }: LoginButtonProps) => {
   return <button className={wrapper}>{label}</button>;
 };
 

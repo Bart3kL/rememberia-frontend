@@ -37,10 +37,10 @@
       height: 40px;
       padding: 0 8px;
       border-radius: 50%;
-      border: 1px solid $gray;
+      border: 1px solid $gray-3;
 
       background-color: transparent;
-      color: $darkLavender;
+      color: $steelBlue;
 
       cursor: pointer;
       transition: border-color 0.3s;
@@ -48,52 +48,6 @@
       > svg {
         width: 24px;
         height: 24px;
-      }
-    }
-
-    &Bar {
-      display: none;
-
-      width: 100%;
-      height: 38px;
-      border-radius: 25px;
-
-      background-color: $gray-3;
-
-      &Label {
-        display: flex;
-        align-items: center;
-
-        width: 100%;
-        border-radius: 25px;
-        border: 1.3px solid transparent;
-
-        cursor: pointer;
-        transition: border 0.3s;
-
-        &Icon {
-          display: flex;
-          justify-content: center;
-
-          width: 40px;
-        }
-
-        input {
-          height: 38px;
-          border: 0;
-
-          background-color: transparent;
-          color: $gray-2;
-
-          font-weight: 600;
-
-          cursor: pointer;
-          outline: none;
-        }
-      }
-
-      &Label:hover {
-        border-color: $gray-2;
       }
     }
 
@@ -110,12 +64,12 @@
 
     > button:nth-child(1) {
       margin-right: 5px;
-      border: 1px solid $gray;
+      border: 1px solid $gray-3;
 
       background-color: transparent;
-
       color: $steelBlue;
     }
+
     > button:nth-child(1):hover {
       background-color: $gray-3;
     }

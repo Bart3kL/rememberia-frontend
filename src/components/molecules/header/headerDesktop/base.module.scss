@@ -2,4 +2,95 @@
 
 .wrapper {
   display: none;
+  align-items: center;
+
+  width: 100%;
+  padding: 0 10px;
+
+  &Logo {
+    min-width: 257px;
+    margin-left: -20px;
+  }
+
+  &Links {
+    display: flex;
+    align-items: center;
+
+    > p {
+      position: relative;
+
+      margin: -5px 10px 0 10px;
+
+      font-size: 20px;
+
+      color: $darkStaleBlue;
+
+      cursor: pointer;
+    }
+
+    p::after {
+      content: "";
+
+      position: absolute;
+      top: 30px;
+      right: 0;
+
+      width: 100%;
+      height: 0.25rem;
+      border-top-right-radius: 0.25rem;
+      border-top-left-radius: 0.25rem;
+
+      background: transparent;
+
+      transition: background 0.3s;
+    }
+
+    p:hover::after {
+      background: #a8b1ff;
+    }
+  }
+
+  &Add {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 37px;
+    min-width: 37px;
+    height: 37px;
+    margin-left: 10px;
+    border-radius: 50%;
+
+    background-color: $blue;
+    color: #fff;
+
+    font-size: 21px;
+
+    transition: background-color 0.3s;
+    cursor: pointer;
+  }
+
+  &Add:hover {
+    background-color: $darkLavender;
+  }
+
+  &Btns {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 130px;
+    margin-left: 10px;
+
+    > button:nth-child(1) {
+      margin-bottom: 5px;
+      border: 1px solid $gray-3;
+
+      background-color: transparent;
+      color: $steelBlue;
+    }
+
+    > button:nth-child(1):hover {
+      background-color: $gray-3;
+    }
+  }
 }

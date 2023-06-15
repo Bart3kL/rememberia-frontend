@@ -1,8 +1,11 @@
 @use "sass:map";
-@import "../../../../styles/variables";
+@import "../../../styles/variables";
 @import "./base.module.scss";
 
 @media only screen and (min-width: map.get($breakpoints, "super-smaller")) {
+  .wrapper {
+    display: flex;
+  }
 }
 
 @media only screen and (min-width: map.get($breakpoints, "smaller")) {
@@ -12,9 +15,6 @@
 }
 
 @media only screen and (min-width: map.get($breakpoints, "small")) {
-  .wrapper {
-    margin-top: 20px;
-  }
 }
 
 @media only screen and (min-width: map.get($breakpoints, "large-min")) {

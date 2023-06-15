@@ -18,7 +18,8 @@ export interface HeaderDataProps {
   add: AddProps[];
   homePageLabel: string;
   logInLabel: string;
-  logo: string;
+  logoSrc: string;
+  subjectsLabel: string;
   rankingLabel: string;
   searchBarLabel: string;
   signInLabel: string;

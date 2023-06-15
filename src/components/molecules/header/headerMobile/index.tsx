@@ -1,15 +1,14 @@
-import { HeaderDataProps } from "./../../../sections/shared/header/utilityTypes";
+import { HeaderDataProps } from "../../../../contracts/sections/shared/header/utilityTypes";
+
 import { Icons } from "../../../../shared";
 import LoginButton from "../../../atoms/LoginButton";
+import SearchBar from "../../../atoms/SearchBar";
 
 import styles from "./rwd.module.scss";
 const {
   wrapper,
   wrapperIcon,
   wrapperSearchBar,
-  wrapperSearchBarBar,
-  wrapperSearchBarBarLabelIcon,
-  wrapperSearchBarBarLabel,
   wrapperSearchBarIcon,
   wrapperLoginBtns,
 } = styles;
@@ -18,7 +17,7 @@ const HeaderMobile = ({
   add,
   homePageLabel,
   logInLabel,
-  logo,
+  logoSrc,
   rankingLabel,
   searchBarLabel,
   signInLabel,
@@ -33,14 +32,7 @@ const HeaderMobile = ({
         <button className={wrapperSearchBarIcon}>
           <Icons.SearchSVG />
         </button>
-        <div className={wrapperSearchBarBar}>
-          <label htmlFor="search" className={wrapperSearchBarBarLabel}>
-            <div className={wrapperSearchBarBarLabelIcon}>
-              <Icons.SearchSVG />
-            </div>
-            <input type="text" id="search" placeholder={searchBarLabel} />
-          </label>
-        </div>
+        <SearchBar searchBarLabel={searchBarLabel} />
       </div>
       <div className={wrapperLoginBtns}>
         <LoginButton label={logInLabel} />
