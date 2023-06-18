@@ -8,6 +8,10 @@ iframe {
   box-sizing: border-box;
 }
 
+a {
+  color: #000;
+}
+
 :where(
     body:not(.template-root),
     #header-section,

@@ -22,7 +22,7 @@ const headerDesktop = ({
         <img src={logoSrc} alt="" />
       </div>
       <div className={wrapperLinks}>
-        <p>{homePageLabel}</p>
+        <p>{homePageLabel.replace("📁", "")}</p>
         <p>{subjectsLabel}</p>
         <p>{rankingLabel}</p>
       </div>
