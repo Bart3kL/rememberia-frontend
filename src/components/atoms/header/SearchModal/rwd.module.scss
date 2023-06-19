@@ -1,10 +1,10 @@
 @use "sass:map";
-@import "../../../styles/variables";
+@import "../../../../styles/variables";
 @import "./base.module.scss";
 
 @media only screen and (min-width: map.get($breakpoints, "super-smaller")) {
   .wrapper {
-    display: flex;
+    display: none;
   }
 }
 

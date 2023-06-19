@@ -1,9 +1,21 @@
+import { useModal } from "../../../../lib/hooks/useModal";
+import { useSubjectsMenu } from "./hooks";
 import { HeaderDataProps } from "../../../../contracts/sections/shared/header/utilityTypes";
-import SearchBar from "../../../atoms/SearchBar";
-import LoginButton from "../../../atoms/LoginButton";
+
+import AddNavModal from "../../../atoms/header/AddNavModal";
+import SearchBar from "../../../atoms/header/SearchBar";
+import SubjectsModal from "../../../atoms/header/SubjectsModal";
+import LoginButton from "../../../atoms/header/LoginButton";
 
 import styles from "./rwd.module.scss";
-const { wrapper, wrapperLogo, wrapperLinks, wrapperAdd, wrapperBtns } = styles;
+const {
+  wrapper,
+  wrapperLogo,
+  wrapperLinks,
+  wrapperAdd,
+  wrapperAddButton,
+  wrapperBtns,
+} = styles;
 
 const headerDesktop = ({
   add,
@@ -16,6 +28,10 @@ const headerDesktop = ({
   subjectsLabel,
   subjects,
 }: HeaderDataProps) => {
+  const { isActive, handleActive } = useModal();
+  const { handleItemClick, handleSubjectsModal, isModalOpen, selectedItem } =
+    useSubjectsMenu(subjects[0]);
+
   return (
     <div className={wrapper}>
       <div className={wrapperLogo}>
@@ -23,15 +39,26 @@ const headerDesktop = ({
       </div>
       <div className={wrapperLinks}>
         <p>{homePageLabel.replace("📁", "")}</p>
-        <p>{subjectsLabel}</p>
+        <p onClick={handleSubjectsModal}>{subjectsLabel}</p>
         <p>{rankingLabel}</p>
       </div>
       <SearchBar searchBarLabel={searchBarLabel} />
-      <div className={wrapperAdd}>+</div>
+      <div className={wrapperAdd}>
+        <button className={wrapperAddButton} onClick={handleActive}>
+          +
+        </button>
+        <AddNavModal isActive={isActive} add={add} />
+      </div>
       <div className={wrapperBtns}>
         <LoginButton label={logInLabel} />
         <LoginButton label={signInLabel} />
       </div>
+      <SubjectsModal
+        isModalOpen={isModalOpen}
+        subjects={subjects.slice(1)}
+        handleItemClick={handleItemClick}
+        selectedItem={selectedItem}
+      />
     </div>
   );
 };

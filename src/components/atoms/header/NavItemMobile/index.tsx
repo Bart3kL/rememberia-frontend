@@ -1,8 +1,8 @@
-import { cx } from "../../../lib/utils";
-import { Icons } from "../../../shared";
+import { cx } from "../../../../lib/utils";
+import { Icons } from "../../../../shared";
 
 import NavSubItemMobile from "../NavSubItemMobile";
-import { NavItemMobileProps } from "../../../contracts/atoms/NavItemMobile";
+import { NavItemMobileProps } from "../../../../contracts/atoms/header/NavItemMobile";
 
 import styles from "./rwd.module.scss";
 const {

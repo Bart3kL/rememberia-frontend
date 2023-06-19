@@ -3,15 +3,12 @@ export type AddProps = {
   href: string;
 };
 export type SubjectsProps = {
-  subjects: {
-    title: string;
+  title: string;
+  href: string;
+  topics: {
     href: string;
-    topics: {
-      href: string;
-      title: string;
-    }[];
+    title: string;
   }[];
-  subjectsLabel: string;
 };
 
 export interface HeaderDataProps {
@@ -23,5 +20,5 @@ export interface HeaderDataProps {
   rankingLabel: string;
   searchBarLabel: string;
   signInLabel: string;
-  subjects: SubjectsProps;
+  subjects: SubjectsProps[];
 }

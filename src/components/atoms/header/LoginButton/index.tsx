@@ -1,4 +1,4 @@
-import { LoginButtonProps } from "../../../contracts/atoms/LoginButton";
+import { LoginButtonProps } from "../../../../contracts/atoms/header/LoginButton";
 
 import styles from "./rwd.module.scss";
 const { wrapper } = styles;

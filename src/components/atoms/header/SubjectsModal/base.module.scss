@@ -1,0 +1,74 @@
+@import "../../../../styles/variables";
+
+.wrapper {
+  position: absolute;
+  top: 73px;
+  left: 422px;
+
+  display: flex;
+
+  width: 440px;
+  border-radius: 10px;
+
+  background-color: #fff;
+
+  visibility: hidden;
+  opacity: 0;
+  overflow: auto;
+  transition: visibility 0.3s, opacity 0.3s;
+
+  a {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 8px 10px;
+
+    color: $darkStaleBlue;
+
+    font-size: 18px;
+    text-decoration: none;
+
+    transition: background-color 0.3s;
+    cursor: pointer;
+  }
+
+  a:hover {
+    background-color: $gray-3;
+  }
+
+  &Active {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &Left {
+    display: flex;
+    flex-direction: column;
+
+    width: 250px;
+    padding: 10px 0;
+    border-right: 1px solid $gray;
+
+    a {
+      font-weight: 600;
+
+      p {
+        svg {
+          transform: rotate(-90deg);
+        }
+      }
+    }
+  }
+
+  &Right {
+    display: flex;
+    flex-direction: column;
+
+    width: 190px;
+    padding: 10px 0;
+
+    a {
+      padding-left: 20px;
+    }
+  }
+}

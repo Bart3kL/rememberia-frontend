@@ -1,4 +1,4 @@
-import { NavSubItemMobileProps } from "../../../contracts/atoms/NavSubItemMobile";
+import { NavSubItemMobileProps } from "../../../../contracts/atoms/header/NavSubItemMobile";
 
 import styles from "./rwd.module.scss";
 const { wrapper } = styles;

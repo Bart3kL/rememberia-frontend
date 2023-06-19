@@ -1,5 +1,5 @@
-import { Icons } from "../../../shared";
-import { SearchBarProps } from "../../../contracts/atoms/SearchBar";
+import { Icons } from "../../../../shared";
+import { SearchBarProps } from "../../../../contracts/atoms/header/SearchBar";
 
 import styles from "./rwd.module.scss";
 const { wrapper, wrapperLabel, wrapperLabelIcon } = styles;
