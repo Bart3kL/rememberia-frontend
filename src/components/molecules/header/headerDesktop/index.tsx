@@ -28,9 +28,14 @@ const headerDesktop = ({
   subjectsLabel,
   subjects,
 }: HeaderDataProps) => {
-  const { isActive, handleActive } = useModal();
-  const { handleItemClick, handleSubjectsModal, isModalOpen, selectedItem } =
-    useSubjectsMenu(subjects[0]);
+  const { isActive, handleActive, modalAddRef } = useModal();
+  const {
+    handleItemClick,
+    handleSubjectsModal,
+    isModalOpen,
+    selectedItem,
+    modalRef,
+  } = useSubjectsMenu(subjects[0]);
 
   return (
     <div className={wrapper}>
@@ -47,7 +52,7 @@ const headerDesktop = ({
         <button className={wrapperAddButton} onClick={handleActive}>
           +
         </button>
-        <AddNavModal isActive={isActive} add={add} />
+        <AddNavModal isActive={isActive} add={add} modalAddRef={modalAddRef} />
       </div>
       <div className={wrapperBtns}>
         <LoginButton label={logInLabel} />
@@ -58,6 +63,7 @@ const headerDesktop = ({
         subjects={subjects.slice(1)}
         handleItemClick={handleItemClick}
         selectedItem={selectedItem}
+        modalRef={modalRef}
       />
     </div>
   );

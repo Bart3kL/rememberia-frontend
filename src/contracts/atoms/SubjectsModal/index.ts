@@ -5,4 +5,5 @@ export interface SubjectsModalProps {
   subjects: SubjectsProps[];
   handleItemClick: (v: SubjectsProps) => void;
   selectedItem: SubjectsProps;
+  modalRef: React.RefObject<HTMLDivElement>;
 }

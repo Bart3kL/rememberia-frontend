@@ -12,40 +12,9 @@
 }
 
 @media only screen and (min-width: map.get($breakpoints, "small")) {
-  .wrapper {
-    display: flex;
-
-    &Links {
-      min-width: 365px;
-      margin-left: -20px;
-      margin-right: 5px;
-    }
-  }
 }
 
 @media only screen and (min-width: map.get($breakpoints, "large-min")) {
-  .wrapper {
-    padding: 0 30px;
-
-    &Links {
-      min-width: 450px;
-
-      > p {
-        margin: -5px 20px 0 20px;
-      }
-    }
-
-    &Btns {
-      flex-direction: row;
-
-      min-width: 250px;
-
-      > button:nth-child(1) {
-        margin-bottom: 0;
-        margin-right: 5px;
-      }
-    }
-  }
 }
 
 @media only screen and (min-width: map.get($breakpoints, "large")) {

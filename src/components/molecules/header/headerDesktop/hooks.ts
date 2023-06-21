@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 
 import { SubjectsProps } from "../../../../contracts/sections/shared/header/utilityTypes";
 
@@ -16,5 +16,35 @@ export const useSubjectsMenu = (subjects: SubjectsProps) => {
     },
     []
   );
-  return { handleItemClick, handleSubjectsModal, isModalOpen, selectedItem };
+
+  const isNode = (target: EventTarget | null): target is Node => {
+    return target !== null && target instanceof Node;
+  };
+
+  const modalRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        modalRef.current &&
+        isNode(event.target) &&
+        !modalRef.current.contains(event.target as Node)
+      ) {
+        setIsModalOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  return {
+    handleItemClick,
+    handleSubjectsModal,
+    isModalOpen,
+    selectedItem,
+    modalRef,
+  };
 };

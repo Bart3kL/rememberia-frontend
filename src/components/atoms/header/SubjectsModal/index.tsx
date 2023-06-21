@@ -14,9 +14,10 @@ const SubjectsModal = ({
   subjects,
   handleItemClick,
   selectedItem,
+  modalRef,
 }: SubjectsModalProps) => {
   return (
-    <div className={cx(wrapper, isModalOpen && wrapperActive)}>
+    <div className={cx(wrapper, isModalOpen && wrapperActive)} ref={modalRef}>
       <div className={wrapperLeft}>
         {subjects.map((navItem, idx) => (
           <NavSubjectLink
