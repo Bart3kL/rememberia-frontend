@@ -3,9 +3,6 @@
 @import "./base.module.scss";
 
 @media only screen and (min-width: map.get($breakpoints, "super-smaller")) {
-  .wrapper {
-    display: none;
-  }
 }
 
 @media only screen and (min-width: map.get($breakpoints, "smaller")) {

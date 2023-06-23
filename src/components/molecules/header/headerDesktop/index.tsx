@@ -1,9 +1,12 @@
 import { useModal } from "../../../../lib/hooks/useModal";
 import { useSubjectsMenu } from "./hooks";
 import { HeaderDataProps } from "../../../sections/shared/header/utilityTypes";
+import { useManageModals } from "../headerMobile/hooks";
+import { Icons } from "../../../../shared";
 
 import AddNavModal from "../../../atoms/header/AddNavModal";
 import SearchBar from "../../../atoms/header/SearchBar";
+import SearchModal from "../../../atoms/header/SearchModal";
 import SubjectsModal from "../../../atoms/header/SubjectsModal";
 import LoginButton from "../../../atoms/header/LoginButton";
 
@@ -12,6 +15,8 @@ const {
   wrapper,
   wrapperLogo,
   wrapperLinks,
+  wrapperSearchBar,
+  wrapperSearchBarIcon,
   wrapperAdd,
   wrapperAddButton,
   wrapperBtns,
@@ -36,6 +41,12 @@ const headerDesktop = ({
     selectedItem,
     modalRef,
   } = useSubjectsMenu(subjects[0]);
+  const {
+    isMobileMenuActive,
+    isSearchModalActive,
+    handleSearchModal,
+    handleMobileMenu,
+  } = useManageModals();
 
   return (
     <div className={wrapper}>
@@ -47,7 +58,12 @@ const headerDesktop = ({
         <p onClick={handleSubjectsModal}>{subjectsLabel}</p>
         <p>{rankingLabel}</p>
       </div>
-      <SearchBar searchBarLabel={searchBarLabel} />
+      <div className={wrapperSearchBar}>
+        <button className={wrapperSearchBarIcon} onClick={handleSearchModal}>
+          <Icons.SearchSVG />
+        </button>
+        <SearchBar searchBarLabel={searchBarLabel} />
+      </div>
       <div className={wrapperAdd}>
         <button className={wrapperAddButton} onClick={handleActive}>
           +
@@ -64,6 +80,11 @@ const headerDesktop = ({
         handleItemClick={handleItemClick}
         selectedItem={selectedItem}
         modalRef={modalRef}
+      />
+      <SearchModal
+        isSearchModalActive={isSearchModalActive}
+        handleSearchModal={handleSearchModal}
+        searchBarLabel={searchBarLabel}
       />
     </div>
   );

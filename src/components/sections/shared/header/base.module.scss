@@ -12,4 +12,14 @@
 
   height: 80px;
   padding: 0 8px;
+
+  background-color: $white;
+
+  transition: 0.75s;
+
+  &Transparent {
+    background: transparent;
+
+    transition: 0.75s;
+  }
 }

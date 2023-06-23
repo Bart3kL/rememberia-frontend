@@ -5,16 +5,21 @@
   align-items: center;
 
   width: 100%;
-  padding: 0 10px;
+  padding: 0 30px;
 
   &Logo {
-    min-width: 237px;
+    width: 207px;
     margin-left: -20px;
+    margin-top: 10px;
   }
 
   &Links {
     display: flex;
     align-items: center;
+
+    min-width: 365px;
+    margin-right: 5px;
+    margin-top: 10px;
 
     > p {
       position: relative;
@@ -54,6 +59,79 @@
     }
   }
 
+  &SearchBar {
+    display: flex;
+    align-items: center;
+
+    margin-left: auto;
+    margin-right: 10px;
+
+    &Icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      width: 40px;
+      height: 40px;
+      padding: 0 8px;
+      border-radius: 50%;
+      border: 1px solid $gray-3;
+
+      background-color: transparent;
+      color: $steelBlue;
+
+      cursor: pointer;
+      transition: border-color 0.3s;
+
+      > svg {
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+    &Icon:hover {
+      border-color: $darkLavender;
+    }
+  }
+  &SearchBar {
+    display: flex;
+    align-items: center;
+
+    margin-left: auto;
+    margin-right: 10px;
+
+    &Icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      width: 40px;
+      height: 40px;
+      padding: 0 8px;
+      border-radius: 50%;
+      border: 1px solid $gray-3;
+
+      background-color: transparent;
+      color: $steelBlue;
+
+      cursor: pointer;
+      transition: border-color 0.3s;
+
+      > svg {
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+    &Icon:hover {
+      border-color: $darkLavender;
+    }
+
+    > div:nth-child(2) {
+      display: none;
+    }
+  }
+
   &Add {
     position: relative;
 
@@ -85,15 +163,13 @@
 
   &Btns {
     display: flex;
-    flex-direction: column;
 
     min-width: 130px;
     margin-left: 10px;
 
     > button:nth-child(1) {
-      margin-bottom: 5px;
       border: 1px solid $gray-3;
-
+      margin-right: 10px;
       background-color: transparent;
       color: $steelBlue;
     }
