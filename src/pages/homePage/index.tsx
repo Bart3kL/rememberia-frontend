@@ -2,14 +2,20 @@ import { useLoaderData } from "react-router-dom";
 
 import Header from "../../components/sections/shared/header";
 import AdvantagesSlider from "../../components/sections/homePage/AdvantagesSlider";
-import Description from "../../components/atoms/homePage/Description";
+import Description from "../../components/sections/homePage/Description";
+import TutorialButton from "../../components/sections/homePage/TutorialButton";
 
 import styles from "./base.module.scss";
 const { wrapper } = styles;
 
 const HomePage = () => {
-  const { header, backgroundStyles, advantagesSlider, description } =
-    useLoaderData() as any;
+  const {
+    header,
+    backgroundStyles,
+    advantagesSlider,
+    description,
+    tutorialBtnLabel,
+  } = useLoaderData() as any;
 
   return (
     <>
@@ -22,6 +28,7 @@ const HomePage = () => {
       >
         <AdvantagesSlider {...advantagesSlider} />
         <Description description={description} />
+        <TutorialButton label={tutorialBtnLabel} />
       </main>
     </>
   );

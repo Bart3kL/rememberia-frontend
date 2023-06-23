@@ -5,10 +5,10 @@ const { wrapper } = styles;
 
 const Description = ({ description }: DescriptionProps) => {
   return (
-    <div
+    <section
       className={wrapper}
       dangerouslySetInnerHTML={{ __html: description }}
-    ></div>
+    ></section>
   );
 };
 
