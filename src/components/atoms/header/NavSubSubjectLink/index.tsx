@@ -1,4 +1,4 @@
-import { NavSubSubjectLinkProps } from "../../../../contracts/atoms/header/NavSubSubjectLink";
+import { NavSubSubjectLinkProps } from "./types";
 
 const NavSubSubjectLink = ({ title, href }: NavSubSubjectLinkProps) => {
   return <a key={href}>{title}</a>;

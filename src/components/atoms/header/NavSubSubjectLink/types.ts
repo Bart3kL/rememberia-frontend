@@ -1,4 +1,4 @@
 export interface NavSubSubjectLinkProps {
-  title: string;
   href: string;
+  title: string;
 }

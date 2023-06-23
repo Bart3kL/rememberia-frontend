@@ -2,7 +2,7 @@ import { cx } from "../../../../lib/utils";
 import { Icons } from "../../../../shared";
 import { useToggleTabs } from "../../../../lib/hooks/useToggleTabs";
 import { useManageModals } from "./hooks";
-import { HeaderDataProps } from "../../../../contracts/sections/shared/header/utilityTypes";
+import { HeaderDataProps } from "../../../sections/shared/header/utilityTypes";
 
 import LoginButton from "../../../atoms/header/LoginButton";
 import SearchBar from "../../../atoms/header/SearchBar";

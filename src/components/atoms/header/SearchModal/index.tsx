@@ -1,6 +1,6 @@
 import { cx } from "../../../../lib/utils";
 import { Icons } from "../../../../shared";
-import { SearchModalProps } from "../../../../contracts/atoms/header/SearchModal";
+import { SearchModalProps } from "./types";
 
 import SearchBar from "../SearchBar";
 

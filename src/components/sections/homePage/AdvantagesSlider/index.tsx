@@ -1,13 +1,15 @@
 import Slider from "../../../molecules/homePage/Slider";
 
+import { AdvantagesSliderProps } from "./types";
+
 import styles from "./rwd.module.scss";
 const { wrapper } = styles;
 
-const AdvantagesSlider = () => {
+const AdvantagesSlider = ({ title, sliderWords }: AdvantagesSliderProps) => {
   return (
     <section className={wrapper}>
-      <h1>Odkryj potęgę nauki z naszą platformą</h1>
-      <Slider />
+      <h1>{title}</h1>
+      <Slider sliderWords={sliderWords} />
     </section>
   );
 };

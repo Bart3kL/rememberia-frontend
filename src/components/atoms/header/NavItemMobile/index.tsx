@@ -2,7 +2,7 @@ import { cx } from "../../../../lib/utils";
 import { Icons } from "../../../../shared";
 
 import NavSubItemMobile from "../NavSubItemMobile";
-import { NavItemMobileProps } from "../../../../contracts/atoms/header/NavItemMobile";
+import { NavItemMobileProps } from "./types";
 
 import styles from "./rwd.module.scss";
 const {

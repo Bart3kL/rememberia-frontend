@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 
 import { cx } from "../../../../lib/utils";
-import { SubjectsModalProps } from "../../../../contracts/atoms/SubjectsModal";
+import { SubjectsModalProps } from "./types";
 
 import NavSubjectLink from "../NavSubjectLink";
 import NavSubSubjectLink from "../NavSubSubjectLink";

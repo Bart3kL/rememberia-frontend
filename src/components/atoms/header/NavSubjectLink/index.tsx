@@ -1,5 +1,5 @@
 import { Icons } from "../../../../shared";
-import { NavSubjectLinkProps } from "../../../../contracts/atoms/header/NavSubjectLink";
+import { NavSubjectLinkProps } from "./types";
 
 const NavSubjectLink = ({ navItem, handleItemClick }: NavSubjectLinkProps) => {
   return (

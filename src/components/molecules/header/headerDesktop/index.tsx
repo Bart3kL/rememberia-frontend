@@ -1,6 +1,6 @@
 import { useModal } from "../../../../lib/hooks/useModal";
 import { useSubjectsMenu } from "./hooks";
-import { HeaderDataProps } from "../../../../contracts/sections/shared/header/utilityTypes";
+import { HeaderDataProps } from "../../../sections/shared/header/utilityTypes";
 
 import AddNavModal from "../../../atoms/header/AddNavModal";
 import SearchBar from "../../../atoms/header/SearchBar";

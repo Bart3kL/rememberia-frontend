@@ -1,5 +1,5 @@
 import { cx } from "../../../../lib/utils";
-import { AddNavModalProps } from "../../../../contracts/atoms/header/AddNavModal";
+import { AddNavModalProps } from "./types";
 
 import styles from "./rwd.module.scss";
 const { wrapper, wrapperActive } = styles;

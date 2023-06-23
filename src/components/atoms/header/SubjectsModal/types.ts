@@ -1,4 +1,4 @@
-import { SubjectsProps } from "../../sections/shared/header/utilityTypes";
+import { SubjectsProps } from "../../../sections/shared/header/utilityTypes";
 
 export interface SubjectsModalProps {
   isModalOpen: boolean;
