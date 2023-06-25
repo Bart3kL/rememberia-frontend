@@ -1,6 +1,6 @@
 import { useState, useMemo, useEffect, useRef } from "react";
 
-import { SubjectsProps } from "../../../sections/shared/header/utilityTypes";
+import { SubjectsProps } from "../../../sections/shared/Header/utilityTypes";
 
 export const useSubjectsMenu = (subjects: SubjectsProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);

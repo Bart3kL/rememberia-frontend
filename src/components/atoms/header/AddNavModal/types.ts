@@ -1,4 +1,4 @@
-import { AddProps } from "../../../sections/shared/header/utilityTypes";
+import { AddProps } from "../../../sections/shared/Header/utilityTypes";
 
 export interface AddNavModalProps {
   isActive: boolean;

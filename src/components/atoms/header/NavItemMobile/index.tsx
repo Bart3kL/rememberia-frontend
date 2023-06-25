@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import { cx } from "../../../../lib/utils";
 import { Icons } from "../../../../shared";
 
@@ -29,7 +31,7 @@ const NavItemMobile = ({
       onClick={() => handleActiveTab(idx)}
     >
       <div className={wrapperTitle}>
-        <a href={href}>{title}</a>
+        <Link to={href}>{title}</Link>
         <p
           className={cx(wrapperIcon, isActiveTab === idx && wrapperIconActive)}
         >

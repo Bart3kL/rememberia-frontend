@@ -1,8 +1,10 @@
+import { Link } from "react-router-dom";
+
 import { cx } from "../../../../lib/utils";
 import { Icons } from "../../../../shared";
 import { useToggleTabs } from "../../../../lib/hooks/useToggleTabs";
 import { useManageModals } from "./hooks";
-import { HeaderDataProps } from "../../../sections/shared/header/utilityTypes";
+import { HeaderDataProps } from "../../../sections/shared/Header/utilityTypes";
 
 import LoginButton from "../../../atoms/header/LoginButton";
 import SearchBar from "../../../atoms/header/SearchBar";
@@ -52,8 +54,8 @@ const HeaderMobile = ({
         <SearchBar searchBarLabel={searchBarLabel} />
       </div>
       <div className={wrapperLoginBtns}>
-        <LoginButton label={logInLabel} />
-        <LoginButton label={signInLabel} />
+        <LoginButton {...logInLabel} />
+        <LoginButton {...signInLabel} />
       </div>
       <SearchModal
         isSearchModalActive={isSearchModalActive}
@@ -74,7 +76,7 @@ const HeaderMobile = ({
         </div>
         <ul className={wrapperMobileMenuNav}>
           <li className={wrapperMobileMenuNavItem}>
-            <a href="/">{homePageLabel}</a>
+            <Link to="/">{homePageLabel}</Link>
           </li>
           {subjects.map((subject, idx) => (
             <NavItemMobile

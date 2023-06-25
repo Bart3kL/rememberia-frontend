@@ -18,6 +18,10 @@
 
   cursor: pointer;
   transition: background 0.3s;
+
+  a {
+    text-decoration: none;
+  }
 }
 .wrapper:hover {
   background: $goldenrod-2;

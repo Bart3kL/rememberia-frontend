@@ -14,11 +14,17 @@ export type SubjectsProps = {
 export interface HeaderDataProps {
   add: AddProps[];
   homePageLabel: string;
-  logInLabel: string;
+  logInLabel: {
+    label: string;
+    href: string;
+  };
   logoSrc: string;
   subjectsLabel: string;
   rankingLabel: string;
   searchBarLabel: string;
-  signInLabel: string;
+  signInLabel: {
+    label: string;
+    href: string;
+  };
   subjects: SubjectsProps[];
 }

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import { cx } from "../../../../lib/utils";
 import { AddNavModalProps } from "./types";
 
@@ -8,9 +10,9 @@ const AddNavModal = ({ isActive, add, modalAddRef }: AddNavModalProps) => {
   return (
     <div className={cx(wrapper, isActive && wrapperActive)} ref={modalAddRef}>
       {add.map(({ title, href }, idx) => (
-        <a href={href} key={title + idx}>
+        <Link to={href} key={title + idx}>
           {title}
-        </a>
+        </Link>
       ))}
     </div>
   );

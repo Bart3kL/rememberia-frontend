@@ -1,0 +1,62 @@
+@import "../../../../styles/variables";
+
+@keyframes scaleUp {
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  max-height: 90px !important;
+
+  color: $steelBlue;
+
+  font-size: 24px;
+
+  text-transform: uppercase;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  &Thumb {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 150px;
+
+    height: 20px;
+    padding: 0 3px 4px;
+    border: none;
+    border-bottom: 1px solid $gray-3;
+
+    background-color: transparent;
+
+    cursor: pointer;
+
+    &::after {
+      content: "";
+
+      position: absolute;
+      top: -2px;
+
+      height: 3px;
+      margin-top: 20px;
+      width: 100%;
+
+      background-color: $gray-3;
+
+      transform: scaleX(0);
+      transform-origin: left;
+    }
+
+    &Active::after {
+      animation: scaleUp 2s linear both;
+    }
+  }
+}

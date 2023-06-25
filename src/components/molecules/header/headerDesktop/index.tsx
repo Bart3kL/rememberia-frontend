@@ -1,7 +1,7 @@
 import { useModal } from "../../../../lib/hooks/useModal";
 import { useSubjectsMenu } from "./hooks";
-import { HeaderDataProps } from "../../../sections/shared/header/utilityTypes";
-import { useManageModals } from "../headerMobile/hooks";
+import { HeaderDataProps } from "../../../sections/shared/Header/utilityTypes";
+import { useManageModals } from "../HeaderMobile/hooks";
 import { Icons } from "../../../../shared";
 
 import AddNavModal from "../../../atoms/header/AddNavModal";
@@ -41,12 +41,7 @@ const headerDesktop = ({
     selectedItem,
     modalRef,
   } = useSubjectsMenu(subjects[0]);
-  const {
-    isMobileMenuActive,
-    isSearchModalActive,
-    handleSearchModal,
-    handleMobileMenu,
-  } = useManageModals();
+  const { isSearchModalActive, handleSearchModal } = useManageModals();
 
   return (
     <div className={wrapper}>
@@ -71,8 +66,8 @@ const headerDesktop = ({
         <AddNavModal isActive={isActive} add={add} modalAddRef={modalAddRef} />
       </div>
       <div className={wrapperBtns}>
-        <LoginButton label={logInLabel} />
-        <LoginButton label={signInLabel} />
+        <LoginButton {...logInLabel} />
+        <LoginButton {...signInLabel} />
       </div>
       <SubjectsModal
         isModalOpen={isModalOpen}
