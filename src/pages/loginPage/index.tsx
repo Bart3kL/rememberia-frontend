@@ -7,12 +7,12 @@ import styles from "./base.module.scss";
 const { wrapper } = styles;
 
 const LoginPage = () => {
-  const { banner, header } = useLoaderData() as any;
-  console.log(header);
+  const { banner, header, form } = useLoaderData() as any;
+  console.log(form);
   return (
     <main className={wrapper}>
       <AuthBanner {...banner.fields} />
-      <Auth header={header.fields} />
+      <Auth header={header.fields} form={form} />
     </main>
   );
 };

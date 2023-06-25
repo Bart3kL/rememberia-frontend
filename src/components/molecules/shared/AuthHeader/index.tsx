@@ -1,18 +1,22 @@
-import { Link } from "react-router-dom";
+import AuthLink from "../../../atoms/shared/AuthLink";
+import AuthButton from "../../../atoms/shared/AuthButton";
+
+import { AuthHeaderProps } from "./types";
 
 import styles from "./rwd.module.scss";
-const { wrapper } = styles;
+const { wrapper, wrapperNav, wrapperButtons } = styles;
 
-const AuthHeader = ({ login, register, buttons }: any) => {
+const AuthHeader = ({ login, register, buttons }: AuthHeaderProps) => {
   return (
     <div className={wrapper}>
-      <div>
-        <h3>
-          <Link to={register.href}>{register.label}</Link>
-        </h3>
-        <h3>
-          <Link to={login.href}>{login.label}</Link>
-        </h3>
+      <div className={wrapperNav}>
+        <AuthLink {...register} />
+        <AuthLink {...login} />
+      </div>
+      <div className={wrapperButtons}>
+        {buttons.map((button, idx) => (
+          <AuthButton {...button} key={button.label + idx} />
+        ))}
       </div>
     </div>
   );

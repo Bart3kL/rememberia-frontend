@@ -5,3 +5,7 @@ export { HomePageSVG } from "./HomePageSVG";
 export { ArrowDownSVG } from "./ArrowDownSVG";
 export { ArrowLeftSVG } from "./ArrowLeftSVG";
 export { ArrowDownWardSVG } from "./ArrowDownWardSVG";
+export { UnderlineSVG } from "./UnderlineSVG";
+export { GoogleSVG } from "./GoogleSVG";
+export { FacebookSVG } from "./FacebookSVG";
+export { AppleSVG } from "./AppleSVG";

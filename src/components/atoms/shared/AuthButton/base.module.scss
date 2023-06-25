@@ -1,0 +1,37 @@
+@import "../../../../styles/variables";
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 50px;
+  padding: 12px 24px;
+  margin-top: 10px;
+  border: 1px solid $gray;
+  border-radius: 5px;
+
+  background-color: $white;
+  color: $gray-4;
+
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+
+  transition: background-color 0.3s;
+  cursor: pointer;
+
+  svg {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+  }
+
+  p {
+    margin-top: 3px;
+  }
+}
+
+.wrapper:hover {
+  background-color: $gray-5;
+}

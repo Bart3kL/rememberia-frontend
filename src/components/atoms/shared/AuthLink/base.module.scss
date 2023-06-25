@@ -1,0 +1,22 @@
+@import "../../../../styles/variables";
+
+.wrapper {
+  font-size: 22px;
+  font-family: $poppins;
+  font-weight: bold;
+  text-decoration: none;
+
+  color: $blue-2;
+
+  svg {
+    display: none;
+  }
+
+  &Active {
+    color: $gray-2 !important;
+
+    svg {
+      display: block;
+    }
+  }
+}

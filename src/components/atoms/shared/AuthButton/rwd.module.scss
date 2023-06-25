@@ -12,6 +12,10 @@
 }
 
 @media only screen and (min-width: map.get($breakpoints, "small")) {
+  .wrapper {
+    height: 66px;
+    padding: 20px 32px;
+  }
 }
 
 @media only screen and (min-width: map.get($breakpoints, "large-min")) {
