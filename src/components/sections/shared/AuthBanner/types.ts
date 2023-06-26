@@ -1,5 +1,4 @@
-export interface SlideProps {
-  word: string;
-  slideIdx: number;
-  idx: number;
+export interface AuthBannerProps {
+  description: string;
+  backgroundImage: string;
 }

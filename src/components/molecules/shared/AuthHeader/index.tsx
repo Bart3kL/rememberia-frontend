@@ -1,12 +1,12 @@
 import AuthLink from "../../../atoms/shared/AuthLink";
 import AuthButton from "../../../atoms/shared/AuthButton";
 
-import { AuthHeaderProps } from "./types";
+import { HeaderProps } from "../../../sections/loginPage/Auth/utilityTypes";
 
 import styles from "./rwd.module.scss";
 const { wrapper, wrapperNav, wrapperButtons } = styles;
 
-const AuthHeader = ({ login, register, buttons }: AuthHeaderProps) => {
+const AuthHeader = ({ login, register, buttons }: HeaderProps) => {
   return (
     <div className={wrapper}>
       <div className={wrapperNav}>

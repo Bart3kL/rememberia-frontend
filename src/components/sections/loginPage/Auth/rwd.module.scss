@@ -12,6 +12,11 @@
 }
 
 @media only screen and (min-width: map.get($breakpoints, "small")) {
+  .wrapper {
+    width: 50%;
+
+    overflow: auto;
+  }
 }
 
 @media only screen and (min-width: map.get($breakpoints, "large-min")) {

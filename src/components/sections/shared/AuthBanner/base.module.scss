@@ -1,4 +1,23 @@
 @import "../../../../styles/variables";
 
 .wrapper {
+  display: none;
+
+  width: 50%;
+
+  background-position: right center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  h4 {
+    max-width: 450px;
+
+    padding: 45px;
+
+    color: $gray-5;
+
+    font-family: $poppins;
+    font-size: 40px;
+    font-weight: bold;
+  }
 }

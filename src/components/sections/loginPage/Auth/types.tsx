@@ -1,10 +1,5 @@
-import { RefObject } from "react";
-import { KeenSliderInstance, KeenSliderOptions } from "keen-slider/react";
-
-export type CarouselRef = RefObject<KeenSliderInstance | null>;
-export type CarouselOptions = KeenSliderOptions;
-export type CarouselInstance = KeenSliderInstance;
-
-export interface SliderProps {
-  sliderWords: string[];
+import { HeaderProps, FormProps } from "./utilityTypes";
+export interface AuthProps {
+  header: HeaderProps;
+  form: FormProps;
 }

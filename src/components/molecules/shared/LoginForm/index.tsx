@@ -1,16 +1,20 @@
-import { AuthHeaderProps } from "./types";
+import { FormProps } from "../../../sections/loginPage/Auth//utilityTypes";
 
 import AuthForm from "../../../atoms/shared/AuthForm";
 
 import styles from "./rwd.module.scss";
-const { wrapper, wrapperCard } = styles;
+const { wrapper, wrapperLogin } = styles;
 
-const LoginForm = ({ inputs, acceptTerms }: any) => {
+const LoginForm = ({ inputs, acceptTerms, buttonLabel }: FormProps) => {
   return (
     <div className={wrapper}>
-      {inputs.map((input: any, idx: any) => (
+      {inputs.map((input, idx) => (
         <AuthForm {...input} key={input.label + idx} />
       ))}
+      <div className={wrapperLogin}>
+        <button>{buttonLabel}</button>
+        <p>{acceptTerms}</p>
+      </div>
     </div>
   );
 };
