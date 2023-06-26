@@ -1,0 +1,105 @@
+@import "../../../../styles/variables";
+.wrapper {
+  &Form {
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 10px;
+
+    &Input {
+      width: 100%;
+      max-width: 650px;
+      height: 50px;
+      margin: 0 auto;
+      border: 1px solid $gray;
+      border-radius: 5px;
+
+      background-color: $white;
+
+      transition: border-color 0.3s;
+      cursor: pointer;
+
+      input {
+        width: 100%;
+        height: 100%;
+        padding: 12px 24px;
+        border-radius: 5px;
+        border: 0;
+
+        color: $gray-4;
+
+        font-weight: 600;
+
+        outline: none;
+
+        &::placeholder {
+          color: $gray-7;
+          font-weight: 600;
+        }
+      }
+    }
+
+    &Input:hover {
+      border-color: $darkLavender;
+    }
+
+    &Description {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 650px;
+      margin: 10px auto 10px auto;
+
+      color: $gray-6;
+
+      font-size: 14px;
+      font-weight: 600;
+
+      p {
+        cursor: pointer;
+
+        transition: color 0.3s;
+      }
+
+      p:hover {
+        color: $gray-4;
+      }
+    }
+  }
+  &Login {
+    width: 100%;
+    max-width: 650px;
+    height: 50px;
+    margin: 40px auto 60px auto;
+
+    p {
+      margin-top: 10px;
+
+      color: $gray-4;
+
+      font-size: 12px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    button {
+      height: 48px;
+      width: 100%;
+      border: 0;
+      border-radius: 5px;
+
+      background-color: $gray-6;
+      color: $white;
+
+      font-weight: bold;
+      font-size: 17px;
+
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: $gray-8;
+    }
+  }
+}

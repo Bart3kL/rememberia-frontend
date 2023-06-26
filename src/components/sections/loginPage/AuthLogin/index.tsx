@@ -1,4 +1,4 @@
-import { AuthProps } from "./types";
+import { AuthLoginProps } from "./types";
 
 import AuthHeader from "../../../molecules/shared/AuthHeader";
 import LoginForm from "../../../molecules/shared/LoginForm";
@@ -6,7 +6,7 @@ import LoginForm from "../../../molecules/shared/LoginForm";
 import styles from "./rwd.module.scss";
 const { wrapper, wrapperLine } = styles;
 
-const Auth = ({ header, form }: AuthProps) => {
+const AuthLogin = ({ header, form }: AuthLoginProps) => {
   return (
     <section className={wrapper}>
       <AuthHeader {...header} />
@@ -16,4 +16,4 @@ const Auth = ({ header, form }: AuthProps) => {
   );
 };
 
-export default Auth;
+export default AuthLogin;

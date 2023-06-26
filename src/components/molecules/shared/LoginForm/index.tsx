@@ -1,4 +1,4 @@
-import { FormProps } from "../../../sections/loginPage/Auth//utilityTypes";
+import { FormProps } from "../../../sections/loginPage/AuthLogin/utilityTypes";
 
 import AuthForm from "../../../atoms/shared/AuthForm";
 

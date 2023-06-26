@@ -1,7 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 
 import AuthBanner from "../../components/sections/shared/AuthBanner";
-import Auth from "../../components/sections/loginPage/Auth";
+import Auth from "../../components/sections/loginPage/AuthLogin";
 
 import styles from "./rwd.module.scss";
 const { wrapper } = styles;

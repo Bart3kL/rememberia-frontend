@@ -1,5 +1,6 @@
 import { HeaderProps, FormProps } from "./utilityTypes";
-export interface AuthProps {
+
+export interface AuthLoginProps {
   header: HeaderProps;
   form: FormProps;
 }

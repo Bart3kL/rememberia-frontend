@@ -1,7 +1,7 @@
 import AuthLink from "../../../atoms/shared/AuthLink";
 import AuthButton from "../../../atoms/shared/AuthButton";
 
-import { HeaderProps } from "../../../sections/loginPage/Auth/utilityTypes";
+import { HeaderProps } from "../../../sections/loginPage/AuthLogin/utilityTypes";
 
 import styles from "./rwd.module.scss";
 const { wrapper, wrapperNav, wrapperButtons } = styles;
