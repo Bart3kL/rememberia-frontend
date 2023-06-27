@@ -11,13 +11,6 @@ import { InitialFormState, Actions, MandatoryInputIds } from "./types";
 
 const initialState: InitialFormState = {
   mandatoryInputs: {
-    username: {
-      id: "username",
-      value: "",
-      touched: false,
-      hasError: false,
-      error: "",
-    },
     email: {
       id: "email",
       value: "",
@@ -31,9 +24,6 @@ const initialState: InitialFormState = {
       touched: false,
       hasError: false,
       error: "",
-      errorAtleastOneNumber: "",
-      errorAtleastOneLetterInCapitalCase: "",
-      errorAlteastOneSpecialCharacter: "",
     },
   },
   submitted: false,
@@ -50,13 +40,7 @@ export function useRegisterForm() {
       const value = currentInput.value;
       const id = currentInput.id as MandatoryInputIds;
 
-      const {
-        hasError,
-        error,
-        errorAtleastOneNumber,
-        errorAtleastOneLetterInCapitalCase,
-        errorAlteastOneSpecialCharacter,
-      } = validateInput(id, value);
+      const { hasError, error } = validateInput(id, value);
 
       dispatch({
         type: Actions.TEXT_INPUT_BLUR,
@@ -65,9 +49,6 @@ export function useRegisterForm() {
           value,
           hasError,
           error,
-          errorAtleastOneNumber,
-          errorAtleastOneLetterInCapitalCase,
-          errorAlteastOneSpecialCharacter,
           touched: true,
         },
       });
@@ -86,7 +67,7 @@ export function useRegisterForm() {
     const isAnyInputInvalid = invalidInputs.length > 0;
 
     if (isAnyInputInvalid) {
-      const textInputIds = ["email", "username", "password", "confirmPassword"];
+      const textInputIds = ["email", "password"];
 
       for (const { id, touched } of invalidInputs) {
         const isTextInput = isElementInArray(id, textInputIds);
@@ -111,7 +92,7 @@ export function useRegisterForm() {
       const mandatoryInputs = { ...formState.mandatoryInputs };
 
       const isInvalid = isFormInvalid(mandatoryInputs);
-
+      console.log(isInvalid);
       if (isInvalid) {
         handleUntouchedFields();
         return;
@@ -130,10 +111,10 @@ export function useRegisterForm() {
 
       const formData = new FormData();
       formData.append("email", dataToSubmit.email);
-      formData.append("username", dataToSubmit.username);
       formData.append("password", dataToSubmit.password);
 
       try {
+        console.log(dataToSubmit.email, dataToSubmit.password);
         const response = await fetch(submitReviewUrl, {
           method: "POST",
           body: formData,

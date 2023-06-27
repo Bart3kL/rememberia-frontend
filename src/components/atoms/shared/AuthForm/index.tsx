@@ -16,6 +16,7 @@ const AuthForm = ({
   errorAtleastOneNumber,
   errorAtleastOneLetterInCapitalCase,
   errorAlteastOneSpecialCharacter,
+  isLogin,
 }: any) => {
   return (
     <div className={wrapper}>
@@ -37,15 +38,9 @@ const AuthForm = ({
         {isError && id === "password" && (
           <ul>
             {error.length > 0 && <li>{error}</li>}
-            {errorAtleastOneNumber.length > 0 && (
-              <li>{errorAtleastOneNumber}</li>
-            )}
-            {errorAtleastOneLetterInCapitalCase.length > 0 && (
-              <li>{errorAtleastOneLetterInCapitalCase}</li>
-            )}
-            {errorAlteastOneSpecialCharacter.length > 0 && (
-              <li>{errorAlteastOneSpecialCharacter}</li>
-            )}
+            {!isLogin && <li>{errorAtleastOneNumber}</li>}
+            {!isLogin && <li>{errorAtleastOneLetterInCapitalCase}</li>}
+            {!isLogin && <li>{errorAlteastOneSpecialCharacter}</li>}
           </ul>
         )}
         {remindPasswordLabel && <p>{remindPasswordLabel}</p>}

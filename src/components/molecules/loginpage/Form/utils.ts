@@ -46,26 +46,8 @@ export const validateInput = (id: string, value: string) => {
   const isEmpty = value.trim().length === 0;
   let hasError = false,
     error = "";
-  let errorAtleastOneNumber = "";
-  let errorAtleastOneLetterInCapitalCase = "";
-  let errorAlteastOneSpecialCharacter = "";
 
   switch (id) {
-    case "username":
-      if (isEmpty) {
-        hasError = true;
-        error = "Please enter a name";
-      } else if (!/^[a-zA-Z0-9]+$/.test(value)) {
-        hasError = true;
-        error = "Invalid name. Please avoid special characters";
-      } else if (value.length < 3) {
-        hasError = true;
-        error = "Invalid name. Name must containt least 3 characters";
-      } else {
-        hasError = false;
-        error = "";
-      }
-      break;
     case "email":
       if (isEmpty) {
         hasError = true;
@@ -83,44 +65,14 @@ export const validateInput = (id: string, value: string) => {
       if (isEmpty) {
         hasError = true;
         error = "Please enter a password";
-      } else if (value.length < 8) {
-        hasError = true;
-        error = "Must be atleast 8 characters!";
-      } else {
-        hasError = false;
-        error = "";
-      }
-      if (!/\d/.test(value)) {
-        errorAtleastOneNumber = "Must contain atleast 1 number!";
-        hasError = true;
-      } else {
-        errorAtleastOneNumber = "";
-      }
-      if (!/[A-Z]/.test(value)) {
-        hasError = true;
-        errorAtleastOneLetterInCapitalCase =
-          "Must contain atleast 1 letter in Capital Case!";
-      } else {
-        errorAtleastOneLetterInCapitalCase = "";
-      }
-      if (!/[!@#$%^&*(),.?":{}|<>]/.test(value)) {
-        hasError = true;
-        errorAlteastOneSpecialCharacter =
-          "Must contain atleast 1 Special Character!";
-      } else {
-        errorAlteastOneSpecialCharacter = "";
       }
       break;
-
     default:
       console.error("Unknown type of input.");
   }
   return {
     hasError,
     error,
-    errorAtleastOneNumber,
-    errorAtleastOneLetterInCapitalCase,
-    errorAlteastOneSpecialCharacter,
   };
 };
 
