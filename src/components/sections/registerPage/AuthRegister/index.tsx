@@ -1,10 +1,10 @@
-import { AuthLoginProps } from "./types";
+import { AuthLoginProps } from "../../loginPage/AuthLogin/types";
 
 import AuthHeader from "../../../molecules/shared/AuthHeader";
 import Form from "../../../molecules/registerPage/Form";
 
 import styles from "./rwd.module.scss";
-const { wrapper, wrapperLine, wrapperForm, wrapperFormLogin } = styles;
+const { wrapper, wrapperLine, wrapperForm } = styles;
 
 const AuthRegister = ({ header, form }: AuthLoginProps) => {
   return (

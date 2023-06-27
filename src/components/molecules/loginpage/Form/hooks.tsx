@@ -31,17 +31,14 @@ const initialState: InitialFormState = {
   submitted: false,
 };
 
-const submitReviewUrl =
-  "https://stamped.io/api/reviews3?apiKey=pubkey-r3fzGI070JGc0pQx2ruzTCnu760u78&storeUrl=gravv-ca.myshopify.com";
-
 export function useRegisterForm() {
   const [formState, dispatch] = useReducer(reducer, initialState);
-  const auth: any = useContext(AuthContext);
+  const auth = useContext(AuthContext);
 
   const { isLoading, sendRequest } = useHttpClient();
 
   const handleInputBlur = useCallback(
-    (e: any) => {
+    (e: React.FocusEvent<HTMLInputElement>) => {
       const currentInput = e.currentTarget;
       const value = currentInput.value;
       const id = currentInput.id as MandatoryInputIds;
@@ -111,9 +108,9 @@ export function useRegisterForm() {
         return Object.assign(acc, inputData);
       }, {});
 
-      const dataToSubmit: any = {
+      const dataToSubmit = {
         ...mandatoryInputsData,
-      };
+      } as { email: string; password: string };
 
       try {
         const responseData = await sendRequest(
@@ -129,7 +126,7 @@ export function useRegisterForm() {
         );
 
         auth.login(responseData.userId, responseData.token);
-      } catch (err: any) {}
+      } catch (err) {}
     },
     [formState]
   );

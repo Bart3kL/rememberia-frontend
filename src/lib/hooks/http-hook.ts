@@ -4,12 +4,13 @@ import { toast } from "react-toastify";
 export const useHttpClient = () => {
   const [isLoading, setIsLoading] = useState(false);
 
-  const activeHttpRequests: any = useRef([]);
+  const activeHttpRequests = useRef<AbortController[]>([]);
 
   const sendRequest = useCallback(
-    async (url: any, method = "GET", body: any, headers = {}) => {
+    async (url: string, method = "GET", body: any, headers = {}) => {
       setIsLoading(true);
-      const httpAbortCtrl: any = new AbortController();
+
+      const httpAbortCtrl = new AbortController();
       activeHttpRequests.current.push(httpAbortCtrl);
 
       try {
@@ -23,7 +24,7 @@ export const useHttpClient = () => {
         const responseData = await response.json();
 
         activeHttpRequests.current = activeHttpRequests.current.filter(
-          (reqCtrl: any) => reqCtrl !== httpAbortCtrl
+          (reqCtrl) => reqCtrl !== httpAbortCtrl
         );
 
         if (!response.ok) {
@@ -32,10 +33,13 @@ export const useHttpClient = () => {
 
         setIsLoading(false);
         window.location.href = "/";
+
         return responseData;
-      } catch (err: any) {
+      } catch (err: unknown) {
+        if (err instanceof Error) {
+          toast.error(err.message);
+        }
         setIsLoading(false);
-        toast.error(err.message);
         throw err;
       }
     },
@@ -44,8 +48,7 @@ export const useHttpClient = () => {
 
   useEffect(() => {
     return () => {
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-      activeHttpRequests.current.forEach((abortCtrl: any) => abortCtrl.abort());
+      activeHttpRequests.current.forEach((abortCtrl) => abortCtrl.abort());
     };
   }, []);
 

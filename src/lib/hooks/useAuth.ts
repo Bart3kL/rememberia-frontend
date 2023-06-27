@@ -3,30 +3,35 @@ import { useState, useCallback, useEffect } from "react";
 let logoutTimer: any;
 
 export const useAuth = () => {
-  const [token, setToken] = useState<any>(false);
-  const [tokenExpirationDate, setTokenExpirationDate] = useState<any>();
-  const [userId, setUserId] = useState<any>(false);
+  const [token, setToken] = useState<string>("");
+  const [tokenExpirationDate, setTokenExpirationDate] = useState<Date | null>();
+  const [userId, setUserId] = useState<string>("");
 
-  const login = useCallback((uid: any, token: any, expirationDate: any) => {
-    setToken(token);
-    setUserId(uid);
-    const tokenExpirationDate =
-      expirationDate || new Date(new Date().getTime() + 1000 * 60 * 60);
-    setTokenExpirationDate(tokenExpirationDate);
-    localStorage.setItem(
-      "userData",
-      JSON.stringify({
-        userId: uid,
-        token: token,
-        expiration: tokenExpirationDate.toISOString(),
-      })
-    );
-  }, []);
+  const login = useCallback(
+    (uid: string, token: string, expirationDate: Date) => {
+      setToken(token);
+      setUserId(uid);
+
+      const tokenExpirationDate =
+        expirationDate || new Date(new Date().getTime() + 1000 * 60 * 60);
+      setTokenExpirationDate(tokenExpirationDate);
+
+      localStorage.setItem(
+        "userData",
+        JSON.stringify({
+          userId: uid,
+          token: token,
+          expiration: tokenExpirationDate.toISOString(),
+        })
+      );
+    },
+    []
+  );
 
   const logout = useCallback(() => {
-    setToken(null);
+    setToken("");
     setTokenExpirationDate(null);
-    setUserId(null);
+    setUserId("");
     localStorage.removeItem("userData");
   }, []);
 

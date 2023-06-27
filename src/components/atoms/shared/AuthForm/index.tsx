@@ -1,4 +1,4 @@
-import { FormProps } from "../../../sections/loginPage/AuthLogin/utilityTypes";
+import { AuthFormProps } from "./types";
 
 import styles from "./rwd.module.scss";
 const { wrapper, wrapperInput, wrapperDescription } = styles;
@@ -17,7 +17,7 @@ const AuthForm = ({
   errorAtleastOneLetterInCapitalCase,
   errorAlteastOneSpecialCharacter,
   isLogin,
-}: any) => {
+}: AuthFormProps) => {
   return (
     <div className={wrapper}>
       <div className={wrapperDescription}>

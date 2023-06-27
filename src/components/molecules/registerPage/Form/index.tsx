@@ -8,7 +8,13 @@ import AuthForm from "../../../atoms/shared/AuthForm";
 import styles from "./rwd.module.scss";
 const { wrapper, wrapperLogin } = styles;
 
-const Form = ({ inputs, acceptTerms, buttonLabel }: any) => {
+const Form = ({
+  email,
+  password,
+  username,
+  acceptTerms,
+  buttonLabel,
+}: FormProps) => {
   const { isLoading, formState, handleInputBlur, handleSubmit } =
     useRegisterForm();
 
@@ -17,8 +23,8 @@ const Form = ({ inputs, acceptTerms, buttonLabel }: any) => {
   return (
     <form className={wrapper} onSubmit={handleSubmit}>
       <AuthForm
-        label="E-MAIL"
-        pleaceholder="user@rememberia.com"
+        label={email.label}
+        pleaceholder={email.pleaceholder}
         type="email"
         id="email"
         value={mandatoryInputs.email.value}
@@ -27,8 +33,8 @@ const Form = ({ inputs, acceptTerms, buttonLabel }: any) => {
         error={mandatoryInputs.email.error}
       />
       <AuthForm
-        label="NAZWA UŻYTKOWNIKA"
-        pleaceholder="bartuss21"
+        label={username?.label}
+        pleaceholder={username?.pleaceholder}
         type="text"
         id="username"
         value={mandatoryInputs.username.value}
@@ -37,8 +43,8 @@ const Form = ({ inputs, acceptTerms, buttonLabel }: any) => {
         error={mandatoryInputs.username.error}
       />
       <AuthForm
-        label="HASŁO"
-        pleaceholder="●●●●●●●●"
+        label={password.label}
+        pleaceholder={password.pleaceholder}
         type="password"
         id="password"
         value={mandatoryInputs.password.value}

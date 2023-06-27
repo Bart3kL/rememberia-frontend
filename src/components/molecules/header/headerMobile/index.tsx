@@ -43,7 +43,7 @@ const HeaderMobile = ({
   } = useManageModals();
 
   const { isActiveTab, handleActiveTab } = useToggleTabs();
-  const auth: any = useContext(AuthContext);
+  const auth = useContext(AuthContext);
 
   return (
     <div className={wrapper}>

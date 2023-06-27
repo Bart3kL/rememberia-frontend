@@ -42,13 +42,13 @@ const initialState: InitialFormState = {
 };
 
 export function useRegisterForm() {
-  const auth: any = useContext(AuthContext);
+  const auth = useContext(AuthContext);
 
   const { isLoading, sendRequest } = useHttpClient();
 
   const [formState, dispatch] = useReducer(reducer, initialState);
   const handleInputBlur = useCallback(
-    (e: any) => {
+    (e: React.FocusEvent<HTMLInputElement>) => {
       const currentInput = e.currentTarget;
       const value = currentInput.value;
       const id = currentInput.id as MandatoryInputIds;
@@ -127,9 +127,9 @@ export function useRegisterForm() {
         return Object.assign(acc, inputData);
       }, {});
 
-      const dataToSubmit: any = {
+      const dataToSubmit = {
         ...mandatoryInputsData,
-      };
+      } as { email: string; username: string; password: string };
 
       try {
         const responseData = await sendRequest(
@@ -146,7 +146,7 @@ export function useRegisterForm() {
         );
 
         auth.login(responseData.userId, responseData.token);
-      } catch (err: any) {}
+      } catch (err) {}
     },
     [formState]
   );

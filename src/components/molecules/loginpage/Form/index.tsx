@@ -1,13 +1,13 @@
 import { FormProps } from "../../../sections/loginPage/AuthLogin/utilityTypes";
 import { Icons } from "../../../../shared";
-
 import { useRegisterForm } from "./hooks";
+
 import AuthForm from "../../../atoms/shared/AuthForm";
 
 import styles from "./rwd.module.scss";
 const { wrapper, wrapperLogin } = styles;
 
-const Form = ({ inputs, acceptTerms, buttonLabel }: any) => {
+const Form = ({ email, password, acceptTerms, buttonLabel }: FormProps) => {
   const { isLoading, formState, handleInputBlur, handleSubmit } =
     useRegisterForm();
 
@@ -16,8 +16,8 @@ const Form = ({ inputs, acceptTerms, buttonLabel }: any) => {
   return (
     <form className={wrapper} onSubmit={handleSubmit}>
       <AuthForm
-        label="E-MAIL"
-        pleaceholder="user@rememberia.com"
+        label={email.label}
+        pleaceholder={email.pleaceholder}
         type="email"
         id="email"
         value={mandatoryInputs.email.value}
@@ -26,8 +26,8 @@ const Form = ({ inputs, acceptTerms, buttonLabel }: any) => {
         error={mandatoryInputs.email.error}
       />
       <AuthForm
-        label="HASŁO"
-        pleaceholder="●●●●●●●●"
+        label={password.label}
+        pleaceholder={password.pleaceholder}
         type="password"
         id="password"
         value={mandatoryInputs.password.value}

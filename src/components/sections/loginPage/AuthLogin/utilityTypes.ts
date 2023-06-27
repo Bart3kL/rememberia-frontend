@@ -8,11 +8,21 @@ export type HeaderProps = {
 };
 
 export type FormProps = {
-  inputs: {
+  email: {
     label: string;
     pleaceholder: string;
     remindPasswordLabel?: string;
-  }[];
+  };
+  password: {
+    label: string;
+    pleaceholder: string;
+    remindPasswordLabel?: string;
+  };
+  username?: {
+    label: string;
+    pleaceholder: string;
+    remindPasswordLabel?: string;
+  };
   acceptTerms: string;
   orEmaillabel: string;
   buttonLabel: string;

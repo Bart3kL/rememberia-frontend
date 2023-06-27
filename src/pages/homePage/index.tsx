@@ -1,5 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 
+import { HomePageProps } from "./types";
+
 import Header from "../../components/sections/shared/Header";
 import AdvantagesSlider from "../../components/sections/homePage/AdvantagesSlider";
 import Description from "../../components/sections/homePage/Description";
@@ -15,7 +17,7 @@ const HomePage = () => {
     advantagesSlider,
     description,
     tutorialBtnLabel,
-  } = useLoaderData() as any;
+  } = useLoaderData() as HomePageProps;
 
   return (
     <>

@@ -45,7 +45,7 @@ const headerDesktop = ({
     modalRef,
   } = useSubjectsMenu(subjects[0]);
   const { isSearchModalActive, handleSearchModal } = useManageModals();
-  const auth: any = useContext(AuthContext);
+  const auth = useContext(AuthContext);
 
   return (
     <div className={wrapper}>
