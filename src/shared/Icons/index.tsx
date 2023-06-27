@@ -9,3 +9,4 @@ export { UnderlineSVG } from "./UnderlineSVG";
 export { GoogleSVG } from "./GoogleSVG";
 export { FacebookSVG } from "./FacebookSVG";
 export { AppleSVG } from "./AppleSVG";
+export { SpinnerSVG } from "./SpinnerSVG";

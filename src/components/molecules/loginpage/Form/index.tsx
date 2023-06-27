@@ -1,4 +1,5 @@
 import { FormProps } from "../../../sections/loginPage/AuthLogin/utilityTypes";
+import { Icons } from "../../../../shared";
 
 import { useRegisterForm } from "./hooks";
 import AuthForm from "../../../atoms/shared/AuthForm";
@@ -7,7 +8,8 @@ import styles from "./rwd.module.scss";
 const { wrapper, wrapperLogin } = styles;
 
 const Form = ({ inputs, acceptTerms, buttonLabel }: any) => {
-  const { formState, handleInputBlur, handleSubmit } = useRegisterForm();
+  const { isLoading, formState, handleInputBlur, handleSubmit } =
+    useRegisterForm();
 
   const { mandatoryInputs } = formState;
 
@@ -37,7 +39,7 @@ const Form = ({ inputs, acceptTerms, buttonLabel }: any) => {
 
       <div className={wrapperLogin}>
         <button type="submit" id="submit">
-          {buttonLabel}
+          {isLoading ? <Icons.SpinnerSVG /> : buttonLabel}
         </button>
         <p>{acceptTerms}</p>
       </div>

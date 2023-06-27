@@ -1,4 +1,6 @@
-import { useCallback, useReducer } from "react";
+import { useCallback, useReducer, useContext, useState } from "react";
+import { useHttpClient } from "../../../../lib/hooks/http-hook";
+import { AuthContext } from "../../../../lib/context/auth-context";
 
 import {
   reducer,
@@ -34,6 +36,10 @@ const submitReviewUrl =
 
 export function useRegisterForm() {
   const [formState, dispatch] = useReducer(reducer, initialState);
+  const auth: any = useContext(AuthContext);
+
+  const { isLoading, sendRequest } = useHttpClient();
+
   const handleInputBlur = useCallback(
     (e: any) => {
       const currentInput = e.currentTarget;
@@ -92,7 +98,7 @@ export function useRegisterForm() {
       const mandatoryInputs = { ...formState.mandatoryInputs };
 
       const isInvalid = isFormInvalid(mandatoryInputs);
-      console.log(isInvalid);
+
       if (isInvalid) {
         handleUntouchedFields();
         return;
@@ -105,27 +111,25 @@ export function useRegisterForm() {
         return Object.assign(acc, inputData);
       }, {});
 
-      const dataToSubmit = {
+      const dataToSubmit: any = {
         ...mandatoryInputsData,
-      } as Record<string, string>;
-
-      const formData = new FormData();
-      formData.append("email", dataToSubmit.email);
-      formData.append("password", dataToSubmit.password);
+      };
 
       try {
-        console.log(dataToSubmit.email, dataToSubmit.password);
-        const response = await fetch(submitReviewUrl, {
-          method: "POST",
-          body: formData,
-        });
-        const result = await response.json();
+        const responseData = await sendRequest(
+          "http://localhost:8000/api/users/login",
+          "POST",
+          JSON.stringify({
+            email: dataToSubmit.email,
+            password: dataToSubmit.password,
+          }),
+          {
+            "Content-Type": "application/json",
+          }
+        );
 
-        console.log(result);
-        dispatch({ type: Actions.SUBMIT, payload: { submitted: true } });
-      } catch (err) {
-        console.error(err);
-      }
+        auth.login(responseData.userId, responseData.token);
+      } catch (err: any) {}
     },
     [formState]
   );
@@ -135,5 +139,6 @@ export function useRegisterForm() {
     handleInputBlur,
 
     handleSubmit,
+    isLoading,
   };
 }

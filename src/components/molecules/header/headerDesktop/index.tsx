@@ -1,8 +1,11 @@
+import { useContext } from "react";
+
 import { useModal } from "../../../../lib/hooks/useModal";
 import { useSubjectsMenu } from "./hooks";
 import { HeaderDataProps } from "../../../sections/shared/Header/utilityTypes";
 import { useManageModals } from "../HeaderMobile/hooks";
 import { Icons } from "../../../../shared";
+import { AuthContext } from "../../../../lib/context/auth-context";
 
 import AddNavModal from "../../../atoms/header/AddNavModal";
 import SearchBar from "../../../atoms/header/SearchBar";
@@ -42,6 +45,7 @@ const headerDesktop = ({
     modalRef,
   } = useSubjectsMenu(subjects[0]);
   const { isSearchModalActive, handleSearchModal } = useManageModals();
+  const auth: any = useContext(AuthContext);
 
   return (
     <div className={wrapper}>
@@ -66,8 +70,11 @@ const headerDesktop = ({
         <AddNavModal isActive={isActive} add={add} modalAddRef={modalAddRef} />
       </div>
       <div className={wrapperBtns}>
-        <LoginButton {...logInLabel} />
-        <LoginButton {...signInLabel} />
+        {!auth.isLoggedIn && <LoginButton {...logInLabel} />}
+        {!auth.isLoggedIn && <LoginButton {...signInLabel} />}
+        {auth.isLoggedIn && (
+          <LoginButton label={"Wyloguj"} onClick={auth.logout} />
+        )}
       </div>
       <SubjectsModal
         isModalOpen={isModalOpen}

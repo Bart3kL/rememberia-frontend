@@ -5,10 +5,11 @@ import { LoginButtonProps } from "./types";
 import styles from "./rwd.module.scss";
 const { wrapper } = styles;
 
-const LoginButton = ({ label, href }: LoginButtonProps) => {
+const LoginButton = ({ label, href, onClick }: LoginButtonProps) => {
   return (
-    <button className={wrapper}>
-      <Link to={href}>{label}</Link>
+    <button className={wrapper} onClick={onClick}>
+      {href && <Link to={href}>{label}</Link>}
+      {onClick && <p>{label}</p>}
     </button>
   );
 };

@@ -1,6 +1,8 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 
 import { cx } from "../../../../lib/utils";
+import { AuthContext } from "../../../../lib/context/auth-context";
 import { Icons } from "../../../../shared";
 import { useToggleTabs } from "../../../../lib/hooks/useToggleTabs";
 import { useManageModals } from "./hooks";
@@ -41,6 +43,7 @@ const HeaderMobile = ({
   } = useManageModals();
 
   const { isActiveTab, handleActiveTab } = useToggleTabs();
+  const auth: any = useContext(AuthContext);
 
   return (
     <div className={wrapper}>
@@ -54,8 +57,11 @@ const HeaderMobile = ({
         <SearchBar searchBarLabel={searchBarLabel} />
       </div>
       <div className={wrapperLoginBtns}>
-        <LoginButton {...logInLabel} />
-        <LoginButton {...signInLabel} />
+        {!auth.isLoggedIn && <LoginButton {...logInLabel} />}
+        {!auth.isLoggedIn && <LoginButton {...signInLabel} />}
+        {auth.isLoggedIn && (
+          <LoginButton label={"Wyloguj"} onClick={auth.logout} />
+        )}
       </div>
       <SearchModal
         isSearchModalActive={isSearchModalActive}

@@ -1,4 +1,6 @@
-import { useCallback, useReducer } from "react";
+import { useCallback, useReducer, useContext } from "react";
+import { useHttpClient } from "../../../../lib/hooks/http-hook";
+import { AuthContext } from "../../../../lib/context/auth-context";
 
 import {
   reducer,
@@ -39,10 +41,11 @@ const initialState: InitialFormState = {
   submitted: false,
 };
 
-const submitReviewUrl =
-  "https://stamped.io/api/reviews3?apiKey=pubkey-r3fzGI070JGc0pQx2ruzTCnu760u78&storeUrl=gravv-ca.myshopify.com";
-
 export function useRegisterForm() {
+  const auth: any = useContext(AuthContext);
+
+  const { isLoading, sendRequest } = useHttpClient();
+
   const [formState, dispatch] = useReducer(reducer, initialState);
   const handleInputBlur = useCallback(
     (e: any) => {
@@ -124,27 +127,26 @@ export function useRegisterForm() {
         return Object.assign(acc, inputData);
       }, {});
 
-      const dataToSubmit = {
+      const dataToSubmit: any = {
         ...mandatoryInputsData,
-      } as Record<string, string>;
-
-      const formData = new FormData();
-      formData.append("email", dataToSubmit.email);
-      formData.append("username", dataToSubmit.username);
-      formData.append("password", dataToSubmit.password);
+      };
 
       try {
-        const response = await fetch(submitReviewUrl, {
-          method: "POST",
-          body: formData,
-        });
-        const result = await response.json();
+        const responseData = await sendRequest(
+          "http://localhost:8000/api/users/signup",
+          "POST",
+          JSON.stringify({
+            email: dataToSubmit.email,
+            name: dataToSubmit.username,
+            password: dataToSubmit.password,
+          }),
+          {
+            "Content-Type": "application/json",
+          }
+        );
 
-        console.log(result);
-        dispatch({ type: Actions.SUBMIT, payload: { submitted: true } });
-      } catch (err) {
-        console.error(err);
-      }
+        auth.login(responseData.userId, responseData.token);
+      } catch (err: any) {}
     },
     [formState]
   );
@@ -152,7 +154,7 @@ export function useRegisterForm() {
   return {
     formState,
     handleInputBlur,
-
+    isLoading,
     handleSubmit,
   };
 }
