@@ -1,5 +1,4 @@
 import AuthLink from "../../../atoms/shared/AuthLink";
-import AuthButton from "../../../atoms/shared/AuthButton";
 
 import { HeaderProps } from "../../../sections/loginPage/AuthLogin/utilityTypes";
 
@@ -12,11 +11,6 @@ const AuthHeader = ({ login, register, buttons }: HeaderProps) => {
       <div className={wrapperNav}>
         <AuthLink {...register} />
         <AuthLink {...login} />
-      </div>
-      <div className={wrapperButtons}>
-        {buttons.map((button, idx) => (
-          <AuthButton {...button} key={button.label + idx} />
-        ))}
       </div>
     </div>
   );

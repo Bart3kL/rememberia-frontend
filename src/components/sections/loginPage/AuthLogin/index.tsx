@@ -4,14 +4,15 @@ import AuthHeader from "../../../molecules/shared/AuthHeader";
 import Form from "../../../molecules/loginpage/Form";
 
 import styles from "./rwd.module.scss";
-const { wrapper, wrapperLine } = styles;
+const { wrapper, wrapperLine, wrapperForm } = styles;
 
 const AuthLogin = ({ header, form }: AuthLoginProps) => {
   return (
     <section className={wrapper}>
       <AuthHeader {...header} />
-      <div className={wrapperLine}>{form.orEmaillabel}</div>
-      <Form {...form} />
+      <div className={wrapperForm}>
+        <Form {...form} />
+      </div>
     </section>
   );
 };

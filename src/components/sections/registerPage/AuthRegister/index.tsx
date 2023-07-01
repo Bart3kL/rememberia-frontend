@@ -10,7 +10,7 @@ const AuthRegister = ({ header, form }: AuthLoginProps) => {
   return (
     <section className={wrapper}>
       <AuthHeader {...header} />
-      <div className={wrapperLine}>{form.orEmaillabel}</div>
+
       <div className={wrapperForm}>
         <Form {...form} />
       </div>
