@@ -3,6 +3,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ReactDOM from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
 import "./styles/global.scss";
 import Router from "./pages/router";
@@ -25,6 +26,12 @@ root.render(
       pauseOnHover
       theme="colored"
     />
-    <Router />
+    <GoogleOAuthProvider
+      clientId={
+        "1073799699670-g70as7o6hatr84riu411896ihqqavfbv.apps.googleusercontent.com"
+      }
+    >
+      <Router />
+    </GoogleOAuthProvider>
   </React.StrictMode>
 );
