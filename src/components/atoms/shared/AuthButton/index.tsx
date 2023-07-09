@@ -1,14 +1,21 @@
+import { Fragment } from "react";
+
 import { AuthButtonProps } from "./types";
-import { chooseIcon } from "./utils";
+import { Icons } from "../../../../shared";
 
 import styles from "./rwd.module.scss";
 const { wrapper } = styles;
 
-const AuthButton = ({ icon, label }: AuthButtonProps) => {
+const AuthButton = ({ label, onClick, isLoading }: AuthButtonProps) => {
   return (
-    <button className={wrapper}>
-      {chooseIcon(icon)}
-      <p> {label}</p>
+    <button className={wrapper} onClick={onClick}>
+      {isLoading ? (
+        <Icons.SpinnerSVG />
+      ) : (
+        <Fragment>
+          <Icons.GoogleSVG /> <p> {label}</p>
+        </Fragment>
+      )}
     </button>
   );
 };

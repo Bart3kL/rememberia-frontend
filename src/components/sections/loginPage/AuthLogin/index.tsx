@@ -1,22 +1,26 @@
+import { Icons } from "../../../../shared";
 import { AuthLoginProps } from "./types";
-import { useGoogleLogin } from "@react-oauth/google";
 import AuthHeader from "../../../molecules/shared/AuthHeader";
 import Form from "../../../molecules/loginpage/Form";
+import { useAuthGoogle } from "./../../../../lib/hooks/useAuthGoogle";
+import AuthButton from "../../../atoms/shared/AuthButton";
 
 import styles from "./rwd.module.scss";
-const { wrapper, wrapperLine, wrapperForm } = styles;
+const { wrapper, wrapperLine, wrapperForm, wrapperGoogleAuth } = styles;
 
 const AuthLogin = ({ header, form }: AuthLoginProps) => {
-  const login = useGoogleLogin({ onSuccess: handleGoogleLoginSuccess });
-
-  function handleGoogleLoginSuccess(tokenResponse: any) {
-    return tokenResponse.access_token;
-  }
-
+  const { login, isLoading } = useAuthGoogle();
   return (
     <section className={wrapper}>
       <AuthHeader {...header} />
-      <button onClick={() => login()}>sin in with google</button>
+      <div className={wrapperGoogleAuth}>
+        <AuthButton
+          label="Zalgouj się przez Google"
+          onClick={() => login()}
+          isLoading={isLoading}
+        />
+      </div>
+      <div className={wrapperLine}>{form.orEmaillabel}</div>
       <div className={wrapperForm}>
         <Form {...form} />
       </div>

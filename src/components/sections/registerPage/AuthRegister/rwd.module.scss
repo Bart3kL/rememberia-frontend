@@ -17,20 +17,12 @@
 
     overflow: auto;
 
+    &GoogleAuth {
+      padding: 26px;
+    }
+
     &Form {
       padding: 26px;
-
-      &Login {
-        button {
-          height: 66px;
-
-          font-size: 18px;
-        }
-
-        p {
-          font-size: 14px;
-        }
-      }
     }
   }
 }

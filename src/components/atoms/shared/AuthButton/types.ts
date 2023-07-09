@@ -1,4 +1,5 @@
 export interface AuthButtonProps {
   label: string;
-  icon: string;
+  onClick: () => void;
+  isLoading: boolean;
 }
