@@ -21,22 +21,26 @@
     margin-right: 5px;
     margin-top: 10px;
 
-    > p {
+    > a,
+    p {
       position: relative;
 
       margin: -5px 10px 0 10px;
 
       font-size: 20px;
       font-weight: 600;
+      text-decoration: none;
 
       color: $darkStaleBlue;
 
       cursor: pointer;
     }
+    a:nth-child(1),
     p:nth-child(1) {
       min-width: 131px;
     }
 
+    a::after,
     p::after {
       content: "";
 
@@ -54,6 +58,7 @@
       transition: background 0.3s;
     }
 
+    a:hover::after,
     p:hover::after {
       background: #a8b1ff;
     }

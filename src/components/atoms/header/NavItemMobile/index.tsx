@@ -34,7 +34,7 @@ const NavItemMobile = ({
       onClick={() => handleActiveTab(idx)}
     >
       <div className={wrapperTitle}>
-        <Link to={href}>{title}</Link>
+        <Link to={`/${href}`}>{title}</Link>
         <p
           className={cx(wrapperIcon, isActiveTab === idx && wrapperIconActive)}
         >

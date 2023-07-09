@@ -65,7 +65,7 @@ const headerDesktop = ({
           to="/"
           className={({ isActive }) => cx(isActive && wrapperLinksActive)}
         >
-          <p>{homePageLabel.replace("📁", "")}</p>
+          {homePageLabel.replace("📁", "")}
         </NavLink>
         <p
           onClick={handleSubjectsModal}
@@ -75,7 +75,12 @@ const headerDesktop = ({
         >
           {subjectsLabel}
         </p>
-        <p>{rankingLabel}</p>
+        <NavLink
+          to="/ranking"
+          className={({ isActive }) => cx(isActive && wrapperLinksActive)}
+        >
+          {rankingLabel}{" "}
+        </NavLink>
       </div>
       <div className={wrapperSearchBar}>
         <button className={wrapperSearchBarIcon} onClick={handleSearchModal}>

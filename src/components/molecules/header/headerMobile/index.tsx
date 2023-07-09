@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
 import { cx } from "../../../../lib/utils";
@@ -85,14 +85,18 @@ const HeaderMobile = ({
           <img src={logoSrc} alt="" />
         </div>
         <ul className={wrapperMobileMenuNav}>
-          <li
-            className={cx(
-              wrapperMobileMenuNavItem,
-              location.pathname === "/" && wrapperMobileMenuNavActive
-            )}
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              cx(
+                wrapperMobileMenuNavItem,
+                isActive && wrapperMobileMenuNavActive
+              )
+            }
           >
-            <Link to="/">{homePageLabel}</Link>
-          </li>
+            {homePageLabel}
+          </NavLink>
+
           {subjects.map((subject, idx) => (
             <NavItemMobile
               key={subject.title + idx}
