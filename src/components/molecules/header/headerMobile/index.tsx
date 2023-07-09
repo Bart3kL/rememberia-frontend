@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 import { cx } from "../../../../lib/utils";
 import { AuthContext } from "../../../../lib/context/auth-context";
@@ -25,6 +26,7 @@ const {
   wrapperMobileMenuActive,
   wrapperMobileMenuNav,
   wrapperMobileMenuNavItem,
+  wrapperMobileMenuNavActive,
 } = styles;
 
 const HeaderMobile = ({
@@ -44,6 +46,8 @@ const HeaderMobile = ({
 
   const { isActiveTab, handleActiveTab } = useToggleTabs();
   const auth = useContext(AuthContext);
+
+  const location = useLocation();
 
   return (
     <div className={wrapper}>
@@ -81,7 +85,12 @@ const HeaderMobile = ({
           <img src={logoSrc} alt="" />
         </div>
         <ul className={wrapperMobileMenuNav}>
-          <li className={wrapperMobileMenuNavItem}>
+          <li
+            className={cx(
+              wrapperMobileMenuNavItem,
+              location.pathname === "/" && wrapperMobileMenuNavActive
+            )}
+          >
             <Link to="/">{homePageLabel}</Link>
           </li>
           {subjects.map((subject, idx) => (

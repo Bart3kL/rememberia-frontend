@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 import { cx } from "../../../../lib/utils";
 import { Icons } from "../../../../shared";
@@ -25,9 +26,11 @@ const NavItemMobile = ({
   isActiveTab,
   handleActiveTab,
 }: NavItemMobileProps) => {
+  const location = useLocation();
+
   return (
     <li
-      className={cx(wrapper, isActiveTab === idx && wrapperActive)}
+      className={cx(wrapper, `/${href}` === location.pathname && wrapperActive)}
       onClick={() => handleActiveTab(idx)}
     >
       <div className={wrapperTitle}>

@@ -1,8 +1,8 @@
 import { AuthLoginProps } from "../../loginPage/AuthLogin/types";
+import { useAuthGoogle } from "./../../../../lib/hooks/useAuthGoogle";
 
 import AuthHeader from "../../../molecules/shared/AuthHeader";
 import Form from "../../../molecules/registerPage/Form";
-import { useAuthGoogle } from "./../../../../lib/hooks/useAuthGoogle";
 import AuthButton from "../../../atoms/shared/AuthButton";
 
 import styles from "./rwd.module.scss";

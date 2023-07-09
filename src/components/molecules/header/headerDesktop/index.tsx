@@ -1,5 +1,8 @@
 import { useContext } from "react";
+import { useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
+import { cx } from "../../../../lib/utils";
 import { useModal } from "../../../../lib/hooks/useModal";
 import { useSubjectsMenu } from "./hooks";
 import { HeaderDataProps } from "../../../sections/shared/Header/utilityTypes";
@@ -23,6 +26,7 @@ const {
   wrapperAdd,
   wrapperAddButton,
   wrapperBtns,
+  wrapperLinksActive,
 } = styles;
 
 const headerDesktop = ({
@@ -44,8 +48,12 @@ const headerDesktop = ({
     selectedItem,
     modalRef,
   } = useSubjectsMenu(subjects[0]);
+
   const { isSearchModalActive, handleSearchModal } = useManageModals();
+
   const auth = useContext(AuthContext);
+
+  const location = useLocation();
 
   return (
     <div className={wrapper}>
@@ -53,8 +61,20 @@ const headerDesktop = ({
         <img src={logoSrc} alt="" />
       </div>
       <div className={wrapperLinks}>
-        <p>{homePageLabel.replace("📁", "")}</p>
-        <p onClick={handleSubjectsModal}>{subjectsLabel}</p>
+        <NavLink
+          to="/"
+          className={({ isActive }) => cx(isActive && wrapperLinksActive)}
+        >
+          <p>{homePageLabel.replace("📁", "")}</p>
+        </NavLink>
+        <p
+          onClick={handleSubjectsModal}
+          className={cx(
+            location.pathname.includes("przedmioty") && wrapperLinksActive
+          )}
+        >
+          {subjectsLabel}
+        </p>
         <p>{rankingLabel}</p>
       </div>
       <div className={wrapperSearchBar}>

@@ -5,7 +5,11 @@ import { NavSubjectLinkProps } from "./types";
 
 const NavSubjectLink = ({ navItem, handleItemClick }: NavSubjectLinkProps) => {
   return (
-    <Link to={navItem.href} onMouseEnter={() => handleItemClick(navItem)}>
+    <Link
+      to={`/${navItem.href}`}
+      onMouseEnter={() => handleItemClick(navItem)}
+      replace={false}
+    >
       {navItem.title}
       <p>
         <Icons.ArrowDownSVG />

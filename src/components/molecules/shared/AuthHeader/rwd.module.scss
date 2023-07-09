@@ -2,6 +2,13 @@
 @import "../../../../styles/variables";
 @import "./base.module.scss";
 
+@media only screen and (min-width: map.get($breakpoints, "mini")) {
+  .wrapper {
+    &Close {
+      display: flex;
+    }
+  }
+}
 @media only screen and (min-width: map.get($breakpoints, "super-smaller")) {
 }
 

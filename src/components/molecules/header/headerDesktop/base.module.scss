@@ -57,6 +57,11 @@
     p:hover::after {
       background: #a8b1ff;
     }
+    &Active {
+      &::after {
+        background: #a8b1ff !important;
+      }
+    }
   }
 
   &SearchBar {
