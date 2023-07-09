@@ -24,7 +24,7 @@ const publicRoutes = createBrowserRouter([
     element: <BranchOfScience />,
 
     errorElement: <ErrorPage />,
-    loader: (x) => {
+    loader: ({ params }) => {
       console.log(x);
       return getPage("branchOfScience");
     },
