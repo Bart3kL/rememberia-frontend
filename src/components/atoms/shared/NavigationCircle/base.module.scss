@@ -1,0 +1,44 @@
+@import "../../../../styles/variables";
+
+.wrapper {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 50%;
+
+  &Circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 42px;
+    height: 42px;
+    padding-top: 5px;
+    border-radius: 50%;
+
+    background-color: $blue-4;
+
+    font-size: 14px;
+    font-weight: 600;
+    color: $blue;
+
+    &Active {
+      background-color: $blue;
+
+      color: $white;
+    }
+  }
+
+  &Title {
+    margin-top: 10px;
+
+    font-size: 15px;
+    font-weight: 600;
+    color: $darkStaleBlue;
+  }
+}

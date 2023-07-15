@@ -10,7 +10,7 @@ const { wrapper } = styles;
 
 const RegisterPage = () => {
   const { banner, header, form } = useLoaderData() as RegisterPageProps;
-  console.log(form);
+
   return (
     <main className={wrapper}>
       <AuthBanner {...banner.fields} />

@@ -1,4 +1,5 @@
 import { createClient } from "contentful";
+import { toast } from "react-toastify";
 
 export const client = createClient({
   space: "2ccu87dh2bfy",
@@ -6,10 +7,17 @@ export const client = createClient({
 });
 
 export async function getPage(content: string) {
-  const query = {
-    content_type: content,
-  };
-  const { items } = await client.getEntries(query);
-  const { fields } = items[0];
-  return fields;
+  try {
+    const query = {
+      content_type: content,
+    };
+    const { items } = await client.getEntries(query);
+    const { fields } = items[0];
+    return fields;
+  } catch (err) {
+    if (err instanceof Error) {
+      toast.error(err.message);
+    }
+    throw new Error(`An error occurred while fetching the page - ${content}`);
+  }
 }

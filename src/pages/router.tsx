@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import HomePage from "./homePage";
 import RegisterPage from "./registerPage";
@@ -9,6 +9,7 @@ import BranchOfScience from "./branchOfScience";
 import { getPage } from "../lib/contentful/client";
 import { AuthContext } from "../lib/context/auth-context";
 import { useAuth } from "../lib/hooks/useAuth";
+import { useFetch } from "../lib/api/useFetch";
 
 const publicRoutes = createBrowserRouter([
   {
@@ -17,16 +18,6 @@ const publicRoutes = createBrowserRouter([
     errorElement: <ErrorPage />,
     loader: () => {
       return getPage("homePage");
-    },
-  },
-  {
-    path: "/przedmioty/:branchOfScienceId",
-    element: <BranchOfScience />,
-
-    errorElement: <ErrorPage />,
-    loader: ({ params }) => {
-      console.log(x);
-      return getPage("branchOfScience");
     },
   },
   {
@@ -45,6 +36,20 @@ const publicRoutes = createBrowserRouter([
       return getPage("registerPage");
     },
   },
+  {
+    path: "/przedmioty/:branchOfScienceId",
+    element: <BranchOfScience />,
+    errorElement: <ErrorPage />,
+    loader: async ({ params }) => {
+      const subjects = await useFetch(
+        `http://localhost:8000/api/subjects?branchId=${params.branchOfScienceId}`,
+        "GET",
+        null
+      );
+
+      return { ...(await getPage("branchOfScience")), subjects };
+    },
+  },
 ]);
 
 const privateRoutes = createBrowserRouter([
@@ -55,19 +60,20 @@ const privateRoutes = createBrowserRouter([
     loader: () => {
       return getPage("homePage");
     },
+  },
+  {
+    path: "/przedmioty/:branchOfScienceId",
+    element: <BranchOfScience />,
+    errorElement: <ErrorPage />,
+    loader: async ({ params }) => {
+      const subjects = await useFetch(
+        `http://localhost:8000/api/subjects?branchId=${params.branchOfScienceId}`,
+        "GET",
+        null
+      );
 
-    children: [
-      {
-        path: "przedmioty/:branchOfScienceId",
-        element: <BranchOfScience />,
-
-        errorElement: <ErrorPage />,
-        loader: (x) => {
-          console.log(x);
-          return getPage("branchOfScience");
-        },
-      },
-    ],
+      return { ...(await getPage("branchOfScience")), subjects };
+    },
   },
 ]);
 

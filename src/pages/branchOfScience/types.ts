@@ -1,14 +1,11 @@
 import { HeaderProps } from "../../components/sections/shared/Header/types";
-import { AdvantagesSliderProps } from "../../components/sections/homePage/AdvantagesSlider/types";
 
-export interface HomePageProps {
+export interface BranchOfScienceProps {
   header: {
     fields: HeaderProps["header"];
   };
-  backgroundStyles: {
-    backgroundBlurUrl: string;
+  subjects: any;
+  navigationBar: {
+    branch: { href: string; title: string }[];
   };
-  advantagesSlider: AdvantagesSliderProps;
-  description: string;
-  tutorialBtnLabel: string;
 }

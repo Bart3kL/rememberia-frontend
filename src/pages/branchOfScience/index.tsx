@@ -1,19 +1,23 @@
 import { useLoaderData } from "react-router-dom";
 
-import { HomePageProps } from "./types";
+import { BranchOfScienceProps } from "./types";
 
 import Header from "../../components/sections/shared/Header";
+import NavigationBar from "../../components/sections/shared/NavigationBar";
 
 import styles from "./base.module.scss";
 const { wrapper } = styles;
 
 const BranchOfScience = () => {
-  const { header, backgroundStyles } = useLoaderData() as HomePageProps;
+  const { subjects, navigationBar, header } =
+    useLoaderData() as BranchOfScienceProps;
 
   return (
     <>
       <Header header={header.fields} />
-      <main className={wrapper}>BranchOfScience</main>
+      <main className={wrapper}>
+        <NavigationBar {...navigationBar} />
+      </main>
     </>
   );
 };

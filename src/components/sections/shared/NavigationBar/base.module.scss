@@ -1,0 +1,33 @@
+@import "../../../../styles/variables";
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 192px;
+
+  background-color: $white;
+
+  &Content {
+    display: flex;
+    flex-wrap: wrap;
+
+    height: 100%;
+
+    max-width: 230px;
+    margin: 0 auto;
+  }
+
+  &Line {
+    position: absolute;
+
+    display: none;
+
+    height: 1px;
+    width: 100%;
+    margin-top: -29px;
+    max-width: 398px;
+
+    background-color: $blue-5;
+  }
+}

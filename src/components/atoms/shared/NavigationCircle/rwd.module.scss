@@ -4,19 +4,17 @@
 
 @media only screen and (min-width: map.get($breakpoints, "super-smaller")) {
   .wrapper {
-    &Icon {
-      padding: 8px;
+    width: 25%;
+
+    &Circle {
+      width: 55px;
+      height: 55px;
+
+      font-size: 18px;
     }
-    &SearchBar {
-      width: 100%;
 
-      &Icon {
-        display: none;
-      }
-
-      &Bar {
-        display: flex;
-      }
+    &Title {
+      font-size: 18px;
     }
   }
 }
@@ -28,9 +26,6 @@
 }
 
 @media only screen and (min-width: map.get($breakpoints, "small")) {
-  .wrapper {
-    display: none;
-  }
 }
 
 @media only screen and (min-width: map.get($breakpoints, "large-min")) {
