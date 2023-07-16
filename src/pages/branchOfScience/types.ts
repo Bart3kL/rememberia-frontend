@@ -8,4 +8,9 @@ export interface BranchOfScienceProps {
   navigationBar: {
     branch: { href: string; title: string }[];
   };
+  subjectsLabels: {
+    preview: string;
+    set: string;
+    sets: string;
+  };
 }
