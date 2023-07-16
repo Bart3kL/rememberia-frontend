@@ -4,4 +4,5 @@ export interface SubjectCardProps {
   sets: string;
   set: string;
   preview: string;
+  onClick: () => void;
 }

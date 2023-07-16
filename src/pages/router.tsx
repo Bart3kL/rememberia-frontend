@@ -91,6 +91,7 @@ const Router = () => {
       }}
     >
       <RouterProvider router={token ? privateRoutes : publicRoutes} />
+      <div id="portal"></div>
     </AuthContext.Provider>
   );
 };

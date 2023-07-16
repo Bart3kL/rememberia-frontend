@@ -12,6 +12,7 @@ const SubjectCard = ({
   preview,
   set,
   sets,
+  onClick,
 }: SubjectCardProps) => {
   return (
     <div className={wrapper}>
@@ -23,7 +24,9 @@ const SubjectCard = ({
         </div>
         <div className={wrapperSummaryBox}>{numberOfTerms(studySets)}</div>
       </div>
-      <button className={wrapperBtn}>{preview}</button>
+      <button className={wrapperBtn} onClick={onClick}>
+        {preview}
+      </button>
     </div>
   );
 };
