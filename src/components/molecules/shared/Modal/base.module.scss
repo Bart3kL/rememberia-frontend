@@ -11,8 +11,7 @@
   width: 90%;
   max-width: 890px;
   margin: 0 auto;
-  padding: 16px;
-  max-height: 178px;
+  padding: 25px;
   border-radius: 16px;
 
   background-color: $white;
@@ -26,5 +25,20 @@
     opacity: 1;
     visibility: visible;
     transition: opacity 0.3s, visibility 0.3s;
+  }
+
+  &Icon {
+    position: absolute;
+    right: 14px;
+    top: 18px;
+
+    border: 0;
+
+    background-color: transparent;
+
+    > svg {
+      width: 30px;
+      height: 30px;
+    }
   }
 }

@@ -7,7 +7,7 @@ import { Curtain } from "./Curtain";
 import { Portal } from "./Portal";
 
 import styles from "./rwd.module.scss";
-const { wrapper, wrapperActive } = styles;
+const { wrapper, wrapperActive, wrapperIcon } = styles;
 
 export function Modal({ show, children, onClose }: ModalProps) {
   usePreventBackgroundScrolling(show);
@@ -20,7 +20,7 @@ export function Modal({ show, children, onClose }: ModalProps) {
           className={cx(wrapper, show && wrapperActive)}
           onClick={(e) => e.stopPropagation()}
         >
-          <button onClick={onClose}>
+          <button onClick={onClose} className={wrapperIcon}>
             <Icons.CloseSVG />
           </button>
           {children}

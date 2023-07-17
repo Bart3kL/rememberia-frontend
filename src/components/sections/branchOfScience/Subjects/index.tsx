@@ -2,30 +2,27 @@ import { useState } from "react";
 
 import { SubjectsProps } from "./types";
 
-import { Modal } from "../../../molecules/shared/Modal";
-import SubjectsCardsProps from "../../../molecules/branchOfScience/SubjectsCards";
+import SubjectsCards from "../../../molecules/branchOfScience/SubjectsCards";
+import SubjectsCardsModal from "../../../molecules/branchOfScience/SubjectsCardsModal";
 
 import styles from "./rwd.module.scss";
-const { wrapper, wrapperSubjects } = styles;
+const { wrapper } = styles;
 
 const Subjects = ({ subjects, subjectsLabels }: SubjectsProps) => {
   const [showModal, setShowModal] = useState({ id: -1, active: false });
 
   return (
     <section className={wrapper}>
-      <SubjectsCardsProps
+      <SubjectsCards
         subjects={subjects}
         subjectsLabels={subjectsLabels}
         setShowModal={setShowModal}
       />
-      <div>
-        <Modal
-          show={showModal.active}
-          onClose={() => setShowModal({ id: -1, active: false })}
-        >
-          {showModal.active && <div>{subjects[showModal.id].subjectTitle}</div>}
-        </Modal>
-      </div>
+      <SubjectsCardsModal
+        showModal={showModal}
+        setShowModal={setShowModal}
+        subjects={subjects}
+      />
     </section>
   );
 };

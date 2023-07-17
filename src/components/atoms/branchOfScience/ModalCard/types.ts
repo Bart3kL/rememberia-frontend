@@ -1,9 +1,5 @@
 export interface SubjectCardProps {
-  studySets: {
-    title: string;
-    author: string;
-    words: { title: string }[];
-  }[];
+  studySets: { words: { title: string }[] }[];
   subjectTitle: string;
   sets: string;
   set: string;

@@ -1,11 +1,11 @@
-import { BranchOfScienceProps } from "../../../../pages/branchOfScience/types";
 import { SubjectCardProps } from "../../../atoms/branchOfScience/SubjectCard/types";
 
-export interface SubjectsProps {
+export interface SubjectsCardsModalProps {
   subjects: {
     _id: string;
     subjectTitle: string;
     studySets: SubjectCardProps["studySets"];
   }[];
-  subjectsLabels: BranchOfScienceProps["subjectsLabels"];
+  showModal: { active: boolean; id: number };
+  setShowModal: (v: any) => void;
 }
