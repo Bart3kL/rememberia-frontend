@@ -68,12 +68,12 @@
     transition: background 0.3s;
     cursor: pointer;
   }
+
+  &Btn:hover {
+    background-color: $gray-7;
+  }
 }
 
 .wrapper:hover {
   border: 2px solid $gold;
-
-  button {
-    background-color: $gray-7;
-  }
 }

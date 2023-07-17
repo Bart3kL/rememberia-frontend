@@ -3,43 +3,15 @@
 @import "./base.module.scss";
 
 @media only screen and (min-width: map.get($breakpoints, "super-smaller")) {
-  .wrapper {
-    max-width: 48%;
-  }
 }
 
 @media only screen and (min-width: map.get($breakpoints, "smaller")) {
-  .wrapper {
-    max-width: 32%;
-  }
 }
 
 @media only screen and (min-width: map.get($breakpoints, "smaller-2")) {
 }
 
 @media only screen and (min-width: map.get($breakpoints, "small")) {
-  .wrapper {
-    height: 180px;
-
-    &Title {
-      font-size: 22px;
-    }
-
-    &Summary {
-      &Box {
-        min-width: 100px;
-        height: 32px;
-
-        font-size: 15px;
-      }
-    }
-    &Btn {
-      width: 120px;
-      height: 34px;
-
-      font-size: 15px;
-    }
-  }
 }
 
 @media only screen and (min-width: map.get($breakpoints, "large-min")) {
