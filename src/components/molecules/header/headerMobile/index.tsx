@@ -1,20 +1,20 @@
-import { useContext } from "react";
-import { Link } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+import { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
-import { cx } from "../../../../lib/utils";
-import { AuthContext } from "../../../../lib/context/auth-context";
-import { Icons } from "../../../../shared";
-import { useToggleTabs } from "../../../../lib/hooks/useToggleTabs";
-import { useManageModals } from "./hooks";
-import { HeaderDataProps } from "../../../sections/shared/Header/utilityTypes";
+import { cx } from '../../../../lib/utils';
+import { AuthContext } from '../../../../lib/context/auth-context';
+import { Icons } from '../../../../shared';
+import { useToggleTabs } from '../../../../lib/hooks/useToggleTabs';
+import { useManageModals } from '../headerMobile/hooks';
+import { HeaderDataProps } from '../../../sections/shared/Header/utilityTypes';
 
-import LoginButton from "../../../atoms/header/LoginButton";
-import SearchBar from "../../../atoms/header/SearchBar";
-import NavItemMobile from "../../../atoms/header/NavItemMobile";
-import SearchModal from "../../../atoms/header/SearchModal";
+import LoginButton from '../../../atoms/header/LoginButton';
+import SearchBar from '../../../atoms/header/SearchBar';
+import NavItemMobile from '../../../atoms/header/NavItemMobile';
+import SearchModal from '../../../atoms/header/SearchModal';
 
-import styles from "./rwd.module.scss";
+import styles from './rwd.module.scss';
 const {
   wrapper,
   wrapperIcon,
@@ -64,7 +64,7 @@ const HeaderMobile = ({
         {!auth.isLoggedIn && <LoginButton {...logInLabel} />}
         {!auth.isLoggedIn && <LoginButton {...signInLabel} />}
         {auth.isLoggedIn && (
-          <LoginButton label={"Wyloguj"} onClick={auth.logout} />
+          <LoginButton label={'Wyloguj'} onClick={auth.logout} />
         )}
       </div>
       <SearchModal
@@ -88,7 +88,7 @@ const HeaderMobile = ({
           <li
             className={cx(
               wrapperMobileMenuNavItem,
-              location.pathname === "/" && wrapperMobileMenuNavActive
+              location.pathname === '/' && wrapperMobileMenuNavActive
             )}
           >
             <Link to="/">{homePageLabel}</Link>

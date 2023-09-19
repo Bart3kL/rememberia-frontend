@@ -1,13 +1,13 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData } from 'react-router-dom';
 
-import { HomePageProps } from "./types";
+import { HomePageProps } from './types';
 
-import Header from "../../components/sections/shared/Header";
-import AdvantagesSlider from "../../components/sections/homePage/AdvantagesSlider";
-import Description from "../../components/sections/homePage/Description";
-import TutorialButton from "../../components/sections/homePage/TutorialButton";
+import Header from '../../components/sections/shared/header';
+import AdvantagesSlider from '../../components/sections/homePage/AdvantagesSlider';
+import Description from '../../components/sections/homePage/Description';
+import TutorialButton from '../../components/sections/homePage/TutorialButton';
 
-import styles from "./base.module.scss";
+import styles from './base.module.scss';
 const { wrapper } = styles;
 
 const HomePage = () => {

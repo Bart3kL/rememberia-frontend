@@ -1,22 +1,23 @@
-import { useContext } from "react";
-import { useLocation } from "react-router-dom";
-import { NavLink } from "react-router-dom";
+import { useContext } from 'react';
+import { useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
-import { cx } from "../../../../lib/utils";
-import { useModal } from "../../../../lib/hooks/useModal";
-import { useSubjectsMenu } from "./hooks";
-import { HeaderDataProps } from "../../../sections/shared/Header/utilityTypes";
-import { useManageModals } from "../HeaderMobile/hooks";
-import { Icons } from "../../../../shared";
-import { AuthContext } from "../../../../lib/context/auth-context";
+import { cx } from '../../../../lib/utils';
+import { useModal } from '../../../../lib/hooks/useModal';
+import { useSubjectsMenu } from '../headerDesktop/hooks';
 
-import AddNavModal from "../../../atoms/header/AddNavModal";
-import SearchBar from "../../../atoms/header/SearchBar";
-import SearchModal from "../../../atoms/header/SearchModal";
-import SubjectsModal from "../../../atoms/header/SubjectsModal";
-import LoginButton from "../../../atoms/header/LoginButton";
+import { HeaderDataProps } from '../../../sections/shared/Header/utilityTypes';
+import { useManageModals } from '../HeaderMobile/hooks';
+import { Icons } from '../../../../shared';
+import { AuthContext } from '../../../../lib/context/auth-context';
 
-import styles from "./rwd.module.scss";
+import AddNavModal from '../../../atoms/header/AddNavModal';
+import SearchBar from '../../../atoms/header/SearchBar';
+import SearchModal from '../../../atoms/header/SearchModal';
+import SubjectsModal from '../../../atoms/header/SubjectsModal';
+import LoginButton from '../../../atoms/header/LoginButton';
+
+import styles from './rwd.module.scss';
 const {
   wrapper,
   wrapperLogo,
@@ -65,12 +66,12 @@ const headerDesktop = ({
           to="/"
           className={({ isActive }) => cx(isActive && wrapperLinksActive)}
         >
-          <p>{homePageLabel.replace("📁", "")}</p>
+          <p>{homePageLabel.replace('📁', '')}</p>
         </NavLink>
         <p
           onClick={handleSubjectsModal}
           className={cx(
-            location.pathname.includes("przedmioty") && wrapperLinksActive
+            location.pathname.includes('przedmioty') && wrapperLinksActive
           )}
         >
           {subjectsLabel}
@@ -93,7 +94,7 @@ const headerDesktop = ({
         {!auth.isLoggedIn && <LoginButton {...logInLabel} />}
         {!auth.isLoggedIn && <LoginButton {...signInLabel} />}
         {auth.isLoggedIn && (
-          <LoginButton label={"Wyloguj"} onClick={auth.logout} />
+          <LoginButton label={'Wyloguj'} onClick={auth.logout} />
         )}
       </div>
       <SubjectsModal
